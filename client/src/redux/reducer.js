@@ -2,13 +2,14 @@ import { CREATE_UNIT, START_FIGHT, END_FIGHT } from "./types";
 
 const initialState = {
   fightStatus: "hold",
+  fightLogs: null,
   player: {
     name: "player",
     avatar:
       "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
     percs: {},
     stats: {
-      health: 400,
+      health: 300,
       damage: 10
     }
   },
@@ -27,7 +28,8 @@ export default function(state = initialState, action) {
     case END_FIGHT: {
       return {
         ...state,
-        fightStatus: action.payloadFight
+        fightStatus: action.payloadFight,
+        fightLogs: action.payloadLogs
       };
     }
 

@@ -13,31 +13,81 @@ const StartFightAC = () => {
   };
 };
 
-const EndFightAC = fight => {
+const EndFightAC = (fight, data) => {
   return {
     type: END_FIGHT,
-    payloadFight: fight
+    payloadFight: fight,
+    payloadLogs: data
   };
 };
 
 const FightAC = (player, mob) => {
-  function figthInitial(oponent) {
-    const atributes = oponent.health + oponent.damage;
-    return atributes;
+  const initialPlayer = player;
+  const initialMob = mob;
+  const initialLogs = [];
+
+  function createDamage(oponent) {
+    const initialDamage = oponent.stats.damage;
+    const randomPolar = Math.floor(Math.random() * 2) === 0 ? "-" : "+";
+    const randomStats = Math.floor(Math.random() * 100);
+    const randomValue = parseInt(randomPolar + randomStats);
+    const generateDamag = initialDamage + (initialDamage * randomValue) / 100;
+    return Math.floor(generateDamag);
   }
-  const initialPlayer = figthInitial(player.stats);
-  const initialMob = figthInitial(mob.stats);
-  const initialFigth = initialPlayer > initialMob ? "Win" : "defeat";
+
+  function actionFightPlayer(player, mob) {
+    const mobStats = mob.stats;
+    if (player.stats.health > 0) {
+      const damagePlayer = createDamage(player);
+      const healthMob = mobStats.health - damagePlayer;
+      initialLogs.push(
+        `${player.name} Наносит ${damagePlayer} единиц урона по ${mob.name}`
+      );
+      return healthMob;
+    } else {
+      return mob.stats.health;
+    }
+  }
+
+  function actionFightMob(player, mob) {
+    const playerStats = player.stats;
+    if (mob.stats.health > 0) {
+      const damageMob = createDamage(mob);
+      const healthPlayer = playerStats.health - damageMob;
+      initialLogs.push(
+        `${mob.name} Наносит ${damageMob} единиц урона по ${player.name}`
+      );
+      return healthPlayer;
+    } else {
+      return player.stats.health;
+    }
+  }
+
+  function goingFight(player, mob) {
+    let initialPlayer = player;
+    let initialMob = mob;
+
+    if (initialPlayer.stats.health <= 0) {
+      return `${initialPlayer.name} был убит ${initialMob.name}`;
+    } else if (initialMob.stats.health <= 0) {
+      return `${initialMob.name} был убит ${initialPlayer.name}`;
+    } else {
+      initialPlayer.stats.health = actionFightMob(initialPlayer, initialMob);
+      initialMob.stats.health = actionFightPlayer(initialPlayer, initialMob);
+    }
+    return goingFight(initialPlayer, initialMob);
+  }
+
+  //   const initialFigth = initialPlayer > initialMob ? "Win" : "defeat";
   return dispatch => {
     dispatch(StartFightAC());
-    dispatch(EndFightAC(initialFigth));
+    dispatch(EndFightAC(goingFight(initialPlayer, initialMob), initialLogs));
   };
 };
 
 const CreateFightAC = player => {
   return async dispatch => {
     const InitializePlayer = await player;
-    console.log("InitializePlayer", InitializePlayer);
 
     function MobCreate(player) {
       function RandomNumber(generatorNameArray) {

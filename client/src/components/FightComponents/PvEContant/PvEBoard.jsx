@@ -23,6 +23,8 @@ class PvEBoard extends React.Component {
     });
   };
 
+  goToRun = () => {};
+
   async componentDidMount() {
     await this.props.CreateFight(this.props.player);
     await this.setState({
@@ -36,9 +38,14 @@ class PvEBoard extends React.Component {
 
   get startFightButton() {
     return (
-      <button className="fight-btn" onClick={this.goToFight}>
-        Начать бой
-      </button>
+      <>
+        <button className="fight-btn" onClick={this.goToFight}>
+          Начать бой
+        </button>
+        <button className="fight-btn" onClick={this.goToRun}>
+          Отступить
+        </button>
+      </>
     );
   }
 
@@ -71,7 +78,7 @@ class PvEBoard extends React.Component {
                 : this.battleStatus}
             </div>
             <div className="logs-wrap">
-              <TableLogs logs={"a"} />
+              <TableLogs logs={this.props.fightLogs} />
             </div>
           </div>
           <div className="pveboard-oponents">
@@ -87,7 +94,8 @@ function mapStateToProps(store) {
   return {
     player: store.player,
     mob: store.mob,
-    statusFight: store.fightStatus
+    statusFight: store.fightStatus,
+    fightLogs: store.fightLogs
   };
 }
 

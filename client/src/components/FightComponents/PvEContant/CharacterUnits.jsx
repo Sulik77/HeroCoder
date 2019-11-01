@@ -3,7 +3,6 @@ import "./../pveboard.css";
 
 class CharacterUnits extends React.Component {
   render() {
-    console.log(this.props.oponent);
     return (
       <div className="oponent-wrap">
         <div className="oponent-avatar">
@@ -13,10 +12,10 @@ class CharacterUnits extends React.Component {
         <div className="oponent-stas__log"> Stats: </div>
         <div className="oponent-stas-wrap">
           <div className="oponent-stats">
-            health - <span> {this.props.oponent.stats.health} </span>
+            health: <span> {this.props.oponent.stats.health} </span>
           </div>
           <div className="oponent-stats">
-            damage - <span> {this.props.oponent.stats.damage} </span>
+            damage: <span> {this.props.oponent.stats.damage} </span>
           </div>
         </div>
       </div>
