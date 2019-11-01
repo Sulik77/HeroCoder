@@ -5,7 +5,7 @@ class FightApp extends React.Component {
   render() {
     return (
       <div className="fightApp-wrap">
-        <Link to="#">
+        <Link to="/figth/pve">
           <div className="fightApp__pve">PvE</div>
         </Link>
         <Link to="#">
