@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
-import { CreateFightAC, FightAC } from "../../../redux/actions";
+import { StartFightAC } from "../../../redux/actions";
+
+import CreateMob from "./helpers/createMob/createMob";
+import startFight from "./helpers/initialFight/initialFight";
 
 import "./../pveboard.css";
 class PvEBoard extends React.Component {
@@ -10,6 +13,7 @@ class PvEBoard extends React.Component {
     super(props);
     this.state = {
       statusFight: "hold",
+      fightLogs: null,
       loading: true,
       player: null,
       mob: null
@@ -17,21 +21,30 @@ class PvEBoard extends React.Component {
   }
 
   goToFight = async () => {
-    await this.props.Figth(this.state.player, this.state.mob);
-    this.setState({
-      statusFight: this.props.statusFight
+    this.props.Figth();
+    await this.setState({
+      loading: true,
+      statusFight: "fight"
+    });
+    const playerInitial = this.state.player;
+    const fight = startFight(playerInitial, this.state.mob);
+    await this.setState({
+      statusFight: fight.log,
+      player: fight.player,
+      mob: fight.mob,
+      loading: false,
+      fightLogs: fight.logs
     });
   };
 
   goToRun = () => {};
 
   async componentDidMount() {
-    await this.props.CreateFight(this.props.player);
-    await this.setState({
-      player: this.props.player,
-      mob: this.props.mob
-    });
-    await this.setState({
+    const playerInitial = { ...this.props.player };
+    const createMob = CreateMob(playerInitial);
+    this.setState({
+      player: playerInitial,
+      mob: createMob,
       loading: false
     });
   }
@@ -66,7 +79,7 @@ class PvEBoard extends React.Component {
     }
 
     return (
-      <div>
+      <>
         <div className="pveboard-wrap">
           <div className="pveboard-oponents">
             <CharacterUnits oponent={this.state.player} />
@@ -78,31 +91,27 @@ class PvEBoard extends React.Component {
                 : this.battleStatus}
             </div>
             <div className="logs-wrap">
-              <TableLogs logs={this.props.fightLogs} />
+              <TableLogs logs={this.state.fightLogs} />
             </div>
           </div>
           <div className="pveboard-oponents">
             <CharacterUnits oponent={this.state.mob} />
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
 
 function mapStateToProps(store) {
   return {
-    player: store.player,
-    mob: store.mob,
-    statusFight: store.fightStatus,
-    fightLogs: store.fightLogs
+    player: { ...store.player }
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    CreateFight: player => dispatch(CreateFightAC(player)),
-    Figth: (player, mob) => dispatch(FightAC(player, mob))
+    Figth: () => dispatch(StartFightAC())
   };
 }
 

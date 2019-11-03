@@ -9,10 +9,8 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <div>Header</div>
           <Route exact path="/figth" component={FightApp} />
           <Route exact path="/figth/pve" component={PvEBoard} />
-          <div>Footer</div>
         </div>
       </Router>
     );

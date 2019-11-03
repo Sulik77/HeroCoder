@@ -15,8 +15,11 @@ class TableLogs extends React.Component {
       <ul className="logs-elements">
         {this.props.logs.map((element, index) => (
           <li key={index} className="logs-element">
-            {" "}
-            {element}{" "}
+            <span className="logs-elements--oponents">{element.assaulter}</span>{" "}
+            наносит{" "}
+            <span className="logs-elements--damage">{element.damage}</span>{" "}
+            единиц урона по{" "}
+            <span className="logs-elements--oponents">{element.defending}</span>
           </li>
         ))}
       </ul>
