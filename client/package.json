@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3100",
   "dependencies": {
     "nodemon": "^1.19.4",
     "react": "^16.11.0",
