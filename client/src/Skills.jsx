@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Skil from "./Skil"
+import Skil from "./components/Frontend/Skil"
 
 import "./Skills.css";
 export default class Skills extends React.Component {
