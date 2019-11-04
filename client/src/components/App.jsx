@@ -11,6 +11,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          
           <Route exact path="/" component={HomePage} />
           <Route exact path="/skill" component={Skills} />
           <Route exact path="/figth" component={FightApp} />

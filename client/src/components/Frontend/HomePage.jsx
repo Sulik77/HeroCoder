@@ -5,10 +5,10 @@ import Branch from "./Branch";
 
 import "./HomeCss.css";
 class HomePage extends React.Component {
+
   render() {
     return (
     <div className="fon"> 
-
       <div className="game">
         <Link to="/figth">
           <div className="fightApp__pve">GAME</div>
