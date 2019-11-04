@@ -10,14 +10,14 @@ class Skil extends React.Component {
 
   render() {
     const data = this.props.data
+    const desc = data.title + "\n" + data.opisanie +'\n' + 'увеличение урона: +' + data.params.damage 
 
     return (
-      <div className="skil">
         <Link to="/skill/123">
-          {/* <div className="html">{data.title}</div> */}
+      <div className="skil" title={desc}>
           <img src={data.image} alt=""/>
-        </Link>
       </div>
+        </Link>
     )
   }
 

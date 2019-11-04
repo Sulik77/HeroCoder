@@ -33,3 +33,12 @@
   display: flex;
   justify-content: space-around
 }
+
+.perks-title--wrap {
+  display: flex;
+  justify-content: space-around;
+}
+
+.perks-title{
+  font-size: 30px;
+}

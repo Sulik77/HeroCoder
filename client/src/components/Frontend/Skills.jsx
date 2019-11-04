@@ -50,6 +50,11 @@ class Skills extends React.Component {
         <Link to="/">
           <div className="home">Home Page</div>
         </Link>
+          <div className='perks-title--wrap'>
+            <div className="perks-title">JS</div>
+            <div className="perks-title">CSS</div>
+            <div className="perks-title">HTML</div>
+          </div>
         <div className="container-perks">
           {this.state.skills.map((element, index) => (
             <Skil data={element} key={index} />
@@ -70,8 +75,8 @@ class Skills extends React.Component {
 
 
 
-        // 
-        //         {/* <table className="table" rules="none" align="center" cellPadding="58%"> */}
+        
+                 {/* <table className="table" rules="none" align="center" cellPadding="58%"> */}
         {/* <tbody> */}
         {/* //             <tr>
 //               <td>
@@ -84,7 +89,7 @@ class Skills extends React.Component {
 //                 <Skil data={this.state.skills[2]} />
 //               </td>
 //             </tr> */}
-      //             {/* <tr>
+                {/* <tr>
       //               <td>Умение 5</td>
       //               <td>Умение 6</td>
       //               <td>Умение 7</td>
@@ -96,7 +101,7 @@ class Skills extends React.Component {
       //               <td>Умение 11</td>
       //               <td>Умение 12</td>
       //             </tr> */}
-      //           {/* </tbody>
+               {/* </tbody>
       //         </table> */}
       </div>
     )
