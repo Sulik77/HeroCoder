@@ -1,0 +1,10 @@
+.skil {
+  width: 33%;
+  height: 123px;
+  border-radius: 15px;
+  margin: 36px 25px 40px 36px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  background: url('/img/avatar-frame.png') no-repeat;
+}
