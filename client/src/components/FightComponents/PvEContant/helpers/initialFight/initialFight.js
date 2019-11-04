@@ -13,8 +13,6 @@ function startFight(player, mob) {
     fight.mob.avatar = deadImg;
   }
 
-  console.log(fight);
-
   return fight;
 }
 

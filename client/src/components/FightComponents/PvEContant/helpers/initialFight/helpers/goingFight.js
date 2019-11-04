@@ -1,4 +1,4 @@
-import { actionFightPlayer, actionFightMob } from "./fightFight";
+import { actionFightPlayer, actionFightMob } from "./actionFight";
 const logs = [];
 
 function goingFight(player, mob) {
