@@ -6,7 +6,11 @@ import "./Skills.css";
 class Skills extends React.Component {
   constructor(props) {
     super(props)
-    
+
+    this.state = {
+      skills: []
+    }
+
     this.state = {
       skills: [
         {
@@ -43,6 +47,21 @@ class Skills extends React.Component {
       ]
     }
   }
+
+  componentDidMount = async () => {
+    console.log('aaaaa')
+    let resp = await fetch ("/api/todos", {
+      method: "GET",
+      headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+      }
+    });
+      const data = await resp.json();
+      console.log(data);
+      
+      this.setState({skills: data})
+}
 
   render() {
     return (
