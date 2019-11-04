@@ -20,15 +20,15 @@ class PvEBoard extends React.Component {
     };
   }
 
-  goToFight = async () => {
+  goToFight = () => {
     this.props.Figth();
-    await this.setState({
+    this.setState({
       loading: true,
       statusFight: "fight"
     });
     const playerInitial = this.state.player;
     const fight = startFight(playerInitial, this.state.mob);
-    await this.setState({
+    this.setState({
       statusFight: fight.log,
       player: fight.player,
       mob: fight.mob,
