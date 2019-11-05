@@ -11,10 +11,9 @@ router.get("/", sessionChecker, (req, res) => {
 
 });
 
-router.get("/api/test-js", async (req, res) => {
+router.get("/api/test", async (req, res) => {
   const questions = await TestJS.find();
-  // console.log(questions);
-  const test = randomArr(questions, 0, questions.length);
+  const test = randomArr(questions, 0, questions.length-1);
   res.json(test);
 });
 
@@ -51,7 +50,7 @@ router.route("/signup").post(async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       hero: {
-        lvl: 1,
+        gold: 5,
         health: 300,
         damage: 10
       }

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import { Nav, Navbar, Image, Form, Button } from 'react-bootstrap';
+import {  BrowserRouter as Router } from "react-router-dom";
+import { Nav, Navbar, Form, Button } from 'react-bootstrap';
 
 import "./Faq.css";
 class Faq extends React.Component {
@@ -28,7 +27,6 @@ class Faq extends React.Component {
           <div className="content-z">
             Welcom to the Hero Coder
           </div>
-          {/* <Image src="./img/barbarian.jpg" fluid /> */}
         </div>
       </Router>
     );
