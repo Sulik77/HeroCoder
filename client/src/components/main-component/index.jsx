@@ -7,6 +7,7 @@ import HomePage from "../homepage";
 import Skills from "../skills";
 import loginForm from "../login-form";
 import Registration from "../registration";
+import Faq from "../FAQ";
 
 class App extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class App extends React.Component {
         <div>
           <Route exact path="/registration" component={Registration} />
           <Route exact path="/login" component={loginForm} />
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={Faq} />
           <Route exact path="/skill" component={Skills} />
           <Route exact path="/figth" component={FightApp} />
           <Route exact path="/figth/pve" component={PvEBoard} />
