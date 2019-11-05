@@ -13,7 +13,7 @@ class Skill extends React.Component {
   }
 
   onClick = () => {
-    this.props.history.push("/test")
+    this.props.history.push("/skill/test")
   }
 
   render() {
