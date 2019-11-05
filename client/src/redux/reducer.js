@@ -10,6 +10,7 @@ const initialState = {
       "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
     percs: [],
     stats: {
+      lvl: 1,
       health: 300,
       damage: 10
     }
@@ -22,13 +23,9 @@ export default function(state = initialState, action) {
     }
     case LOGIN: {
       return {
-<<<<<<< HEAD
         ...state,
         user: action.user,
         loggedin: true
-=======
-        ...state
->>>>>>> FightLogic
       };
     }
 

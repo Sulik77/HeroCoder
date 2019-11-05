@@ -5,6 +5,7 @@ import FightApp from "./FightComponents/FightApp";
 import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import Faq from "./Frontend/Faq";
 import Skills from "./Frontend/Skills";
+import loginForm from "./login-form";
 
 class App extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class App extends React.Component {
         <div className="full-screen">
           
           <Route exact path="/" component={Faq} />
-          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/login" component={loginForm} />
           <Route exact path="/skill" component={Skills} />
           <Route exact path="/figth" component={FightApp} />
           <Route exact path="/figth/pve/location" component={FightLocation} />
