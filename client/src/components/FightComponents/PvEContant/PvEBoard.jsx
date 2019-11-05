@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
 import { StartFightAC } from "../../../redux/actions";
 
 import CreateMob from "./helpers/createMob/createMob";
 import startFight from "./helpers/initialFight/initialFight";
+import loseEscape from "./helpers/initialEscape/initialEscape";
 
 import "./../pveboard.css";
 class PvEBoard extends React.Component {
@@ -16,37 +18,67 @@ class PvEBoard extends React.Component {
       fightLogs: null,
       loading: true,
       player: null,
-      mob: null
+      mob: null,
+      chanceEscape: true
     };
   }
 
-  goToFight = () => {
+  goToFight = async () => {
     this.props.Figth();
     this.setState({
       loading: true,
-      statusFight: "fight"
+      statusFight: "fight",
+      chanceEscape: false
     });
     const playerInitial = this.state.player;
     const fight = startFight(playerInitial, this.state.mob);
-    this.setState({
+    await this.setState({
       statusFight: fight.log,
       player: fight.player,
       mob: fight.mob,
       loading: false,
-      fightLogs: fight.logs
+      fightLogs: fight.logs,
+      messagelog: null
     });
   };
 
-  goToRun = () => {};
+  goToRun = async () => {
+    const randomChance = Math.floor(Math.random() * 2);
+
+    if (randomChance === 0) {
+      const escape = loseEscape(this.state.player, this.state.mob);
+      await this.setState({
+        chanceEscape: false,
+        messagelog: `${this.state.mob.name} бросил в вас камень, тем самым оглушив вас и нанес ${escape.log.damage} единиц урона. Побег не удался`,
+        player: escape.player
+      });
+    } else {
+      const mobInitial = CreateMob(this.state.player);
+      await this.setState({
+        mob: mobInitial
+      });
+    }
+  };
 
   async componentDidMount() {
-    const playerInitial = { ...this.props.player };
+    const cloneOfPropsPlayer = JSON.parse(JSON.stringify(this.props.player));
+    const playerInitial = cloneOfPropsPlayer;
     const createMob = CreateMob(playerInitial);
-    this.setState({
+    await this.setState({
       player: playerInitial,
       mob: createMob,
       loading: false
     });
+  }
+
+  get escapeButton() {
+    return (
+      <>
+        <button className="fight-btn" onClick={this.goToRun}>
+          Отступить
+        </button>
+      </>
+    );
   }
 
   get startFightButton() {
@@ -54,9 +86,6 @@ class PvEBoard extends React.Component {
       <>
         <button className="fight-btn" onClick={this.goToFight}>
           Начать бой
-        </button>
-        <button className="fight-btn" onClick={this.goToRun}>
-          Отступить
         </button>
       </>
     );
@@ -89,8 +118,10 @@ class PvEBoard extends React.Component {
               {this.state.statusFight === "hold"
                 ? this.startFightButton
                 : this.battleStatus}
+              {this.state.chanceEscape ? this.escapeButton : ""}
             </div>
             <div className="logs-wrap">
+              {this.state.messagelog}
               <TableLogs logs={this.state.fightLogs} />
             </div>
           </div>
@@ -105,7 +136,7 @@ class PvEBoard extends React.Component {
 
 function mapStateToProps(store) {
   return {
-    player: { ...store.player }
+    player: store.player
   };
 }
 

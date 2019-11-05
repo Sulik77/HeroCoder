@@ -6,7 +6,7 @@ const initialState = {
     name: "player",
     avatar:
       "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
-    percs: {},
+    percs: [],
     stats: {
       health: 300,
       damage: 10

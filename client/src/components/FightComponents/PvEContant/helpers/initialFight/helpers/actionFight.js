@@ -32,7 +32,11 @@ function actionFightMob(player, mob) {
     const healthPlayer = playerStats.health - damageMob;
     const result = {
       health: healthPlayer,
-      log: { assaulter: mob.name, damage: damageMob, defending: player.name }
+      log: {
+        assaulter: mob.name,
+        damage: damageMob,
+        defending: player.name
+      }
     };
     return result;
   } else {
