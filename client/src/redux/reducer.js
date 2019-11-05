@@ -1,6 +1,8 @@
-import { START_FIGHT } from "./types";
+import { START_FIGHT,LOGIN } from "./types";
 
 const initialState = {
+  user: { username: " ", email: " " },
+  loggedin: false,
   player: {
     type: "player",
     name: "player",
@@ -17,8 +19,12 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case START_FIGHT: {
+    }
+    case LOGIN: {
       return {
-        state
+        ...state,
+        user: action.user,
+        loggedin: true
       };
     }
 

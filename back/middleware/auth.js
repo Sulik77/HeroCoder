@@ -12,9 +12,10 @@ function cookiesCleaner(req, res, next) {
 // middleware function to check for logged-in users
 const sessionChecker = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
-        // next()
-        // res.redirect('/dashboard');
+        res.json(true);
+        next()
     } else {
+        res.json(false)
         next();
     }
 };
