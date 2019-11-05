@@ -1,4 +1,4 @@
-import { START_FIGHT,LOGIN } from "./types";
+import { START_FIGHT, LOGIN } from "./types";
 
 const initialState = {
   user: { username: " ", email: " " },

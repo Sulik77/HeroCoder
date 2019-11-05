@@ -9,7 +9,7 @@ class FightApp extends React.Component {
         <div className="list-fightApp-wrap">
           <div className="fightApp-wrap">
             <Link
-              to="/figth/pve/location"
+              to="/figth/pve/locations"
               className="fightApp-link fightApp-link--pve"
             >
               <div className="fightApp-link__desc">Темные земли</div>

@@ -8,6 +8,7 @@
   padding-top: 5vh;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 4vh;
 }
 
 .location-link {
