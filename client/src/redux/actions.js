@@ -1,4 +1,4 @@
-import { START_FIGHT, END_FIGHT,LOGIN } from "./types";
+import { START_FIGHT, LOGIN } from "./types";
 
 const StartFightAC = () => {
   return {

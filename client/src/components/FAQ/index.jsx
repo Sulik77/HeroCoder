@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import { Nav, Navbar, Image, Form, Button } from 'react-bootstrap';
+// import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Nav, Navbar, Form, Button } from 'react-bootstrap';
 
 import "./Faq.css";
 class Faq extends React.Component {
