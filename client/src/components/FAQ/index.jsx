@@ -20,7 +20,7 @@ class Faq extends React.Component {
               </Nav>
               <Nav>
                 <Form inline>
-                  <Button className="login" type="submit">Login</Button>
+                  <Button className="login" href="/login" type="submit">Login</Button>
                 </Form>
               </Nav>
             </Navbar.Collapse>
@@ -28,7 +28,6 @@ class Faq extends React.Component {
           <div className="content-z">
             Welcom to the Hero Coder
           </div>
-          {/* <Image src="./img/barbarian.jpg" fluid /> */}
         </div>
       </Router>
     );

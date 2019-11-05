@@ -1,4 +1,4 @@
-import { START_FIGHT,LOGIN } from "./types";
+import { START_FIGHT, LOGIN } from "./types";
 
 const initialState = {
   user: { username: " ", email: " " },
@@ -10,6 +10,7 @@ const initialState = {
       "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
     percs: [],
     stats: {
+      lvl: 1,
       health: 300,
       damage: 10
     }

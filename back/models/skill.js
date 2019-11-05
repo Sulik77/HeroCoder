@@ -4,7 +4,8 @@ const skillSchema = new mongoose.Schema({
    title: String,
    opisanie: String,
     params: Object,
-    img: String
+    img: String,
+    branch: String
 });
 
 module.exports = mongoose.model('Skill', skillSchema);

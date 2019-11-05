@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
@@ -20,7 +21,8 @@ class PvEBoard extends React.Component {
       loading: true,
       player: null,
       mob: null,
-      chanceEscape: true
+      chanceEscape: true,
+      playerDead: false
     };
   }
 
@@ -46,7 +48,7 @@ class PvEBoard extends React.Component {
   goToRun = async () => {
     const randomChance = Math.floor(Math.random() * 2);
 
-    if (randomChance === 0) {
+    if (randomChance === 1) {
       const escape = loseEscape(this.state.player, this.state.mob);
       await this.setState({
         chanceEscape: false,
@@ -54,10 +56,7 @@ class PvEBoard extends React.Component {
         player: escape.player
       });
     } else {
-      const mobInitial = CreateMob(this.state.player);
-      await this.setState({
-        mob: mobInitial
-      });
+      this.props.history.push("/");
     }
   };
 
@@ -154,7 +153,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PvEBoard);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(PvEBoard)
+);

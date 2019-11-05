@@ -1,16 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
 
-import "./Skil.css";
-class Skil extends React.Component {
+import "./Skill.css";
+
+class Skill extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      test: "",
+      learn: false
+    }
+  }
+
+  onClick = () => {
+    this.props.history.push("/skill/test")
   }
 
   render() {
     const data = this.props.data;
-    console.log(this.props.data);
-
     const desc =
       data.title +
       "\n" +
@@ -20,15 +27,13 @@ class Skil extends React.Component {
       data.params.damage;
 
     return (
-      <div className="skil-wrap">
-        <Link to="/skill/123">
-          <div className="skil" title={desc}>
-            <img src={data.image} alt="" />
-          </div>
-        </Link>
+      <div className="skill-wrap">
+        <div onClick={this.onClick} className="skill" title={desc}>
+          <img src={data.img} alt="" />
+        </div>
       </div>
     );
   }
 }
 
-export default Skil;
+export default withRouter(Skill);

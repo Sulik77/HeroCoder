@@ -7,17 +7,17 @@ class FightLocation extends React.Component {
     return (
       <div className="locations-bacground">
         <div className="location-wrap">
-          <Link to="location" className="location-link">
+          <Link to="/figth/pve/locations/forest" className="location-link">
             <div className="location-link-layaout location-link-layaout--forest">
               <div className="location-link__desc">Проклятый лес</div>
             </div>
           </Link>
-          <Link to="location" className="location-link">
+          <Link to="/figth/pve/locations/ruins" className="location-link">
             <div className="location-link-layaout location-link-layaout--ruins">
               <div className="location-link__desc">Забытые руины</div>
             </div>
           </Link>
-          <Link to="location" className="location-link">
+          <Link to="/figth/pve/locations/caves" className="location-link">
             <div className="location-link-layaout location-link-layaout--caves">
               <div className="location-link__desc">Заброшенные шахты</div>
             </div>
