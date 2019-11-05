@@ -1,4 +1,4 @@
-import { START_FIGHT,LOGIN } from "./types";
+import { START_FIGHT, LOGIN } from "./types";
 
 const initialState = {
   user: { username: " ", email: " " },
@@ -22,13 +22,9 @@ export default function(state = initialState, action) {
     }
     case LOGIN: {
       return {
-<<<<<<< HEAD
         ...state,
         user: action.user,
         loggedin: true
-=======
-        ...state
->>>>>>> FightLogic
       };
     }
 
