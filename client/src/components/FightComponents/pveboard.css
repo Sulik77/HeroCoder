@@ -86,6 +86,9 @@
 .logs-wrap {
   overflow: auto;
   height: 600px;
+  background-color: rgba(168, 135, 25, 0.7);
+  border: 10px solid gray;
+  box-sizing: border-box;
 }
 
 .logs-elements {
