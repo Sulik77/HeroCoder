@@ -26,7 +26,7 @@ class Faq extends React.Component {
             </Navbar.Collapse>
           </Navbar>
           <div className="content-z">
-            Welcom to the Hero Coder
+            Welcome to the Hero Coder
           </div>
           {/* <Image src="./img/barbarian.jpg" fluid /> */}
         </div>
