@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+
+#root, .full-screen {
+  width: 100%;
+  height: 100%;
+}
+
+.fon {
+  background: url("/img/barbarian.jpg");
+  background-position-y: 56px;
+  width: 100%;
+  height: 100%;  
+}
+
+.content-z {
+  padding: 56px 0 0 0;
+}
