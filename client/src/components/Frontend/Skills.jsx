@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export default class Skills extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       skills: []
     }
