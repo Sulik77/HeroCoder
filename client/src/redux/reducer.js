@@ -22,9 +22,13 @@ export default function(state = initialState, action) {
     }
     case LOGIN: {
       return {
+<<<<<<< HEAD
         ...state,
         user: action.user,
         loggedin: true
+=======
+        ...state
+>>>>>>> FightLogic
       };
     }
 

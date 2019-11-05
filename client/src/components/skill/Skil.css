@@ -7,10 +7,14 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  background: url('/img/avatar-frame.png') no-repeat;
+  background: url("/img/avatar-frame.png") no-repeat;
   background-size: cover;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.skil-wrap {
+  width: 33%;
 }
 
 .skil img {
