@@ -18,7 +18,7 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case START_FIGHT: {
       return {
-        state
+        ...state
       };
     }
 

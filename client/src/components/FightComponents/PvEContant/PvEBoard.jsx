@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
@@ -70,7 +71,7 @@ class PvEBoard extends React.Component {
       loading: false
     });
   }
-
+  z;
   get escapeButton() {
     return (
       <>
@@ -124,6 +125,13 @@ class PvEBoard extends React.Component {
               {this.state.messagelog}
               <TableLogs logs={this.state.fightLogs} />
             </div>
+            {this.state.statusFight === "hold" ? (
+              " "
+            ) : (
+              <Link to="/">
+                <div className="fightApp-btn__home">Домой</div>
+              </Link>
+            )}
           </div>
           <div className="pveboard-oponents">
             <CharacterUnits oponent={this.state.mob} />

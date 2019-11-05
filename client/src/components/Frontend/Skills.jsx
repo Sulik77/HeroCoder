@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Skil from "./Skil";
 
 import "./Skills.css";
-class Skills extends React.Component {
+export default class Skills extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +20,6 @@ class Skills extends React.Component {
       }
     });
     const data = await resp.json();
-    console.log(data);
-
     this.setState({ skills: data });
   };
 
@@ -45,5 +43,3 @@ class Skills extends React.Component {
     );
   }
 }
-
-export default Skills;
