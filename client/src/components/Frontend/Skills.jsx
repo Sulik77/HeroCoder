@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from "react-router-dom";
 import Skil from "./Skil"
-
 import "./Skills.css";
+import React from "react";
+import { Link } from "react-router-dom";
+ 
+
 export default class Skills extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +12,6 @@ export default class Skills extends React.Component {
       skills: []
     }
   }
-
 
   componentDidMount = async () => {
     let resp = await fetch("/api/skills", {
@@ -43,8 +43,9 @@ export default class Skills extends React.Component {
           {this.state.skills.map((element, index) => (
             <Skil data={element} key={index} />
           ))}
+
         </div>
       </div>
-    )
-  };
+    )}
+
 }
