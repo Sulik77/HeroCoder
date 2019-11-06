@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap';
 import Modal from '../modal-login';
 import Registration from '../modal-registration';
@@ -9,7 +8,6 @@ class Faq extends React.Component {
 
   render() {
     return (
-      <Router>
         <div className="fon">
           <Navbar className='bar' expand="lg" fixed="top" variant="dark">
             <Navbar.Brand href="#home">HeroCoder</Navbar.Brand>
@@ -33,7 +31,6 @@ class Faq extends React.Component {
             Welcom to the Hero Coder
           </div>
         </div>
-      </Router>
     );
   }
 }

@@ -18,7 +18,7 @@ class Modal extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onClick = async e => {
+  onSubmit = async e => {
     e.preventDefault();
     let resp = await fetch("/login", {
       method: "POST",
@@ -32,9 +32,10 @@ class Modal extends Component {
     if (data.status === 1) {
       this.setState({ error: data.error });
     } else {
-      this.props.history.push("/homepage");
+      console.log(data)
       this.props.login(data);
       this.setState({ isOpen: false });
+      this.props.history.push("/homepage");
     }
   };
 
@@ -47,7 +48,7 @@ class Modal extends Component {
         <Dialog isOpen={this.state.isOpen} onClose={(e) => {
           this.setState({ isOpen: false })
           }}>
-          <Form>
+          <Form onSubmit={this.onSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                   <Form.Control required name="email" onChange={this.handleInput} type="email" placeholder="Enter email" />
@@ -63,7 +64,7 @@ class Modal extends Component {
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Button onClick={this.onClick} variant="primary" type="submit">
+            <Button variant="primary" type="submit">
               Login
             </Button>
           </Form>
@@ -82,7 +83,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(withRouter(Modal));
+)(Modal));

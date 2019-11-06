@@ -24,6 +24,11 @@ export default class Test extends React.Component {
 
     };
 
+    onClick = () => {
+
+            
+    }
+
     render() {
         return (
             <div>
@@ -46,6 +51,7 @@ export default class Test extends React.Component {
                             </div>
                         </div>
                     })}
+                    <button onClick={this.onClick}> Done</button>
                 </form>
             </div>
         )

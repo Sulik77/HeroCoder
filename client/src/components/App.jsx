@@ -9,7 +9,6 @@ import MoveLocation from "./FightComponents/MoveLocation/MoveLocation";
 import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import HomePage from "./homepage";
 
-
 class App extends React.Component {
   render() {
     return (

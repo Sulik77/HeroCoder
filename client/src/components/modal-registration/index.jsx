@@ -43,7 +43,7 @@ class Registration extends Component {
 
     } else {
       this.setState({ isOpen: false });
-      this.props.history.push("/#");
+      this.props.history.push("/homepage");
     }
   };
 

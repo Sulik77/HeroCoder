@@ -26,6 +26,8 @@ export default class Skills extends React.Component {
 
 
   render() {
+    console.log('skills render');
+    
 
     return (
 
