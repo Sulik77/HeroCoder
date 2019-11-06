@@ -1,0 +1,59 @@
+.tests-form-wrap {
+  background: url(/img/bg.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.tests-form {
+  padding: 1px;
+}
+
+.test-wrap {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+
+  display: block;
+  margin: 60px;
+  border: 5px solid gray;
+  padding: 20px;
+}
+
+.test-question {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  border-bottom: 3px solid green;
+  font-size: 22px;
+}
+
+.test-code {
+  padding: 20px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 22px;
+  border: 2px solid green;
+  margin-bottom: 20px;
+  background-color: rgba(172, 165, 165, 0.6);
+}
+
+.test-answerd-wrap {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+}
+
+.test-answerd {
+  width: 33%;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.test-answerd a {
+  margin-left: 10px;
+}
+
+.test-answerd input {
+  transform: scale(2);
+  opacity: 0.9;
+  cursor: pointer;
+}
