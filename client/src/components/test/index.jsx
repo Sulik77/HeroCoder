@@ -53,6 +53,7 @@ export default class Test extends React.Component {
                 </div>
               );
             })}
+            <button>GO</button>
         </form>
       </div>
     );
