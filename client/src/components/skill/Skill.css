@@ -1,4 +1,4 @@
-.skil {
+.skill {
   width: 123px;
   height: 123px;
   border-radius: 15px;
@@ -7,13 +7,17 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
-  background: url('/img/avatar-frame.png') no-repeat;
+  background: url("/img/avatar-frame.png") no-repeat;
   background-size: cover;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.skil img {
+.skill-wrap {
+  width: 33%;
+}
+
+.skill img {
   margin: 0;
   flex: 1;
 }

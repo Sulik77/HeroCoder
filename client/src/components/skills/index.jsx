@@ -1,14 +1,15 @@
+import Skill from "../skill"
+import "./Skills.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import Skil from "./Skil";
+ 
 
-import "./Skills.css";
 export default class Skills extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       skills: []
-    };
+    }
   }
 
   componentDidMount = async () => {
@@ -16,30 +17,34 @@ export default class Skills extends React.Component {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       }
     });
     const data = await resp.json();
-    this.setState({ skills: data });
-  };
+    this.setState({ skills: data })
+  }
+
 
   render() {
+
     return (
+
       <div className="body">
         <Link to="/">
           <div className="home">Home Page</div>
         </Link>
-        <div className="perks-title--wrap">
+        <div className='perks-title--wrap'>
           <div className="perks-title">JS</div>
           <div className="perks-title">CSS</div>
           <div className="perks-title">HTML</div>
         </div>
         <div className="container-perks">
           {this.state.skills.map((element, index) => (
-            <Skil data={element} key={index} />
+            <Skill data={element} key={index} />
           ))}
+
         </div>
       </div>
-    );
-  }
+    )}
+
 }
