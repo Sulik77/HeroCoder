@@ -56,7 +56,7 @@ class PvEBoard extends React.Component {
         player: escape.player
       });
     } else {
-      this.props.history.push("/");
+      this.props.history.push("/figth/pve/locations");
     }
   };
 
