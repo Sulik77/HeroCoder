@@ -29,9 +29,9 @@ router.route("/login")
     const user = await User.findOne({ email });
 
     if (!user) {
-      res.json({ status: 1 });
+      res.json({ status: 1, error: "Введите email и password" });
     } else if (user.password !== password) {
-      const massege = "не правильный пароль или емайл";
+      const massege = "Не правильный password или email";
       res.json({ status: 1, error: massege });
     } else {
       req.session.user = user;

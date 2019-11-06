@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Nav, Navbar, Form, Button } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import Modal from '../modal/Modal'
 
 import "./Faq.css";
@@ -16,15 +16,15 @@ class Faq extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link href="/figth">Figth</Nav.Link>
+                <Nav.Link href="/figth">Fight</Nav.Link>
                 <Nav.Link href="/skill">Skills</Nav.Link>
               </Nav>
               <Nav>
-                
-                 <Modal> 
-                   <p>hvhghgh</p>
-                 </Modal>
-                
+
+                <Modal>
+                  <p>hvhghgh</p>
+                </Modal>
+
               </Nav>
             </Navbar.Collapse>
           </Navbar>
