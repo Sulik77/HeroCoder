@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
-import { StartFightAC } from "../../../redux/actions";
+import { StartFightAC, winFightAC } from "../../../redux/actions";
 
 import CreateMob from "./helpers/createMob/createMob";
 import startFight from "./helpers/initialFight/initialFight";
@@ -43,6 +43,10 @@ class PvEBoard extends React.Component {
       fightLogs: fight.logs,
       messagelog: null
     });
+    if (this.state.player.stats.health > 0) {
+      const goldCreate = Math.floor(Math.random() * 21);
+      this.props.winFight(goldCreate);
+    }
   };
 
   goToRun = async () => {
@@ -61,7 +65,7 @@ class PvEBoard extends React.Component {
   };
 
   async componentDidMount() {
-    const cloneOfPropsPlayer = JSON.parse(JSON.stringify(this.props.player));
+    const cloneOfPropsPlayer = this.props.player;
     const playerInitial = cloneOfPropsPlayer;
     const createMob = CreateMob(playerInitial);
     await this.setState({
@@ -141,21 +145,16 @@ class PvEBoard extends React.Component {
   }
 }
 
-function mapStateToProps(store) {
-  return {
-    player: store.player
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
-    Figth: () => dispatch(StartFightAC())
+    Figth: () => dispatch(StartFightAC()),
+    winFight: gold => dispatch(winFightAC(gold))
   };
 }
 
 export default withRouter(
   connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   )(PvEBoard)
 );

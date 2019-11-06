@@ -4,11 +4,13 @@ import "./moveLocation.css";
 
 import PvEBoard from "../PvEContant/PvEBoard";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class MoveLocation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      player: null,
       locationImage: 0,
       fight: false,
       locationParams: ""
@@ -34,8 +36,10 @@ class MoveLocation extends React.Component {
 
   componentDidMount() {
     const params = this.props.match.params.location;
+    const playerInitial = JSON.parse(JSON.stringify(this.props.player));
     this.setState({
-      locationParams: params
+      locationParams: params,
+      player: playerInitial
     });
   }
 
@@ -46,7 +50,7 @@ class MoveLocation extends React.Component {
           className={`location-going-layaout--${this.state.locationParams}-${this.state.locationImage}`}
         >
           <div className="location-going-fight">
-            <PvEBoard />
+            <PvEBoard player={this.state.player} />
           </div>
         </div>
       );
@@ -71,4 +75,17 @@ class MoveLocation extends React.Component {
   }
 }
 
-export default MoveLocation;
+function mapStateToProps(store) {
+  return {
+    player: store.player
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  // return {};
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MoveLocation);
