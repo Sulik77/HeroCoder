@@ -15,8 +15,7 @@ class Faq extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                {/* <Nav.Link href="/fight">Fight</Nav.Link>
-                <Nav.Link href="/skill">Skills</Nav.Link> */}
+                
               </Nav>
               <Nav>
                 <div className="registration">
