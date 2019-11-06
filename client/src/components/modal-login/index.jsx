@@ -29,10 +29,10 @@ class Modal extends Component {
       body: JSON.stringify(this.state)
     });
     const data = await resp.json();
+    console.log("121212",data);
     if (data.status === 1) {
       this.setState({ error: data.error });
     } else {
-      console.log(data)
       this.props.login(data);
       this.setState({ isOpen: false });
       this.props.history.push("/homepage");
@@ -42,24 +42,21 @@ class Modal extends Component {
   render() {
     return (
       <div className='dialog'>
-
         <Button variant="outline-success" type="button" onClick={(e) => this.setState({ isOpen: true })}>Login</Button>
-
         <Dialog isOpen={this.state.isOpen} onClose={(e) => {
           this.setState({ isOpen: false })
-          }}>
+        }}>
           <Form onSubmit={this.onSubmit}>
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                  <Form.Control required name="email" onChange={this.handleInput} type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
+              <Form.Label>Email address</Form.Label>
+              <Form.Control required name="email" onChange={this.handleInput} type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-                <Form.Control required name="password" onChange={this.handleInput} type="password" placeholder="Password" />
+              <Form.Control required name="password" onChange={this.handleInput} type="password" placeholder="Password" />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
@@ -69,7 +66,6 @@ class Modal extends Component {
             </Button>
           </Form>
         </Dialog>
-
       </div>
     )
   }

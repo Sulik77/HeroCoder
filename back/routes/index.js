@@ -13,7 +13,7 @@ router.get("/", sessionChecker, (req, res) => {
 
 router.get("/api/test", async (req, res) => {
   const questions = await TestJS.find();
-  const test = randomArr(questions, 0, questions.length-1);
+  const test = randomArr(questions, 0, questions.length - 1);
   res.json(test);
 });
 
@@ -35,33 +35,39 @@ router.route("/login")
       res.json({ status: 1, error: massege });
     } else {
       req.session.user = user;
-      res.json({ username: user.username, email: user.email });
+      res.json({ username: user.username, email: user.email, hero:user.hero });
     }
   });
 
 
 
-router.route("/signup").post(async (req, res) => {
-  let newUser = await User.findOne({ email: req.body.email });
+router.route("/signup")
+  .post(async (req, res) => {
+    let newUser = await User.findOne({ email: req.body.email });
 
-  if (!newUser) {
-    const user = new User({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      hero: {
-        gold: 5,
-        health: 300,
-        damage: 10
-      }
-    });
-    await user.save();
-    req.session.user = user;
-    res.json({ username: user.username, email: user.email, hero:user.hero });
-  } else {
-    const message = "Такой пользователь уже существует";
-    res.json({ status: 1, error: message });
-  }
-});
+    if (!newUser) {
+      const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        hero: {
+          gold: 5,
+          health: 300,
+          damage: 10
+        }
+      });
+      await user.save();
+      req.session.user = user;
+      res.json(
+        {
+          username: user.username,
+          email: user.email,
+          hero: { gold: user.hero.gold, health: user.hero.health, damage: user.hero.damage }
+        });
+    } else {
+      const message = "Такой пользователь уже существует";
+      res.json({ status: 1, error: message });
+    }
+  });
 
 module.exports = router;
