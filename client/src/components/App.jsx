@@ -19,7 +19,7 @@ class App extends React.Component {
           <Route exact path="/" component={Faq} />
           <Route exact path="/login" component={loginForm} />
           <Route exact path="/skill" component={Skills} />
-          <Route exact path="/figth" component={FightApp} />
+          <Route exact path="/fight" component={FightApp} />
           <Route exact path="/figth/pve/locations" component={FightLocation} />
           <Route exact path="/figth/pve/fight" component={PvEBoard} />
           <Route exact path="/skill/test" component={Test} />
