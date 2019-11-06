@@ -1,4 +1,4 @@
-import { START_FIGHT, LOGIN } from "./types";
+import { START_FIGHT, LOGIN, WIN_FIGHT } from "./types";
 
 const StartFightAC = () => {
   return {
@@ -13,4 +13,11 @@ const loginAC = data => {
   };
 };
 
-export { StartFightAC,loginAC };
+const winFightAC = goldValue => {
+  return {
+    type: WIN_FIGHT,
+    gold: goldValue
+  };
+};
+
+export { StartFightAC, loginAC, winFightAC };
