@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Navbar, Form, Button } from 'react-bootstrap';
+import Modal from '../modal/Modal'
 
 import "./Faq.css";
 class Faq extends React.Component {
@@ -19,9 +20,11 @@ class Faq extends React.Component {
                 <Nav.Link href="/skill">Skills</Nav.Link>
               </Nav>
               <Nav>
-                <Form inline>
-                  <Button className="login" href="/login" type="submit">Login</Button>
-                </Form>
+                
+                 <Modal> 
+                   <p>hvhghgh</p>
+                 </Modal>
+                
               </Nav>
             </Navbar.Collapse>
           </Navbar>
