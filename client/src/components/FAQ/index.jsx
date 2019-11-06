@@ -1,9 +1,7 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Nav, Navbar } from 'react-bootstrap';
-import Modal from '../modal/Modal'
-import Registration from '../modalRigestration'
+import { Nav, Navbar} from 'react-bootstrap';
+import Modal from '../modal-login';
+import Registration from '../modal-registration';
 
 
 import "./Faq.css";
@@ -11,7 +9,6 @@ class Faq extends React.Component {
 
   render() {
     return (
-      <Router>
         <div className="fon">
           <Navbar className='bar' expand="lg" fixed="top" variant="dark">
             <Navbar.Brand href="#home">HeroCoder</Navbar.Brand>
@@ -23,18 +20,11 @@ class Faq extends React.Component {
               </Nav>
               <Nav>
                 <div className="registration">
-
-                  <Registration>
-                    <p>
-                      sd
-                 </p>
-                  </Registration>
+               <Registration>
+               </Registration>
                 </div>
-
-                <Modal>
-                  <p>modalWindow</p>
+                <Modal> 
                 </Modal>
-
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -57,7 +47,6 @@ class Faq extends React.Component {
 
           </div>
         </div>
-      </Router>
     );
   }
 }

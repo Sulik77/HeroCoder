@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { loginAC } from "../../redux/actions";
+import { loginAC } from "../../../redux/actions";
 import { connect } from "react-redux";
 // import Form from 'react-bootstrap/Form';
 
