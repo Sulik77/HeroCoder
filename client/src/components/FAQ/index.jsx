@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap';
 import Modal from '../modal/Modal'
+import Registration from '../modalRigestration'
 
 import "./Faq.css";
 class Faq extends React.Component {
@@ -20,10 +21,18 @@ class Faq extends React.Component {
                 <Nav.Link href="/skill">Skills</Nav.Link>
               </Nav>
               <Nav>
-                
-                 <Modal> 
+                <div className="registration">
+
+               <Registration>
+                 <p>
+                   sd
+                 </p>
+               </Registration>
+                </div>
+
+                <Modal> 
                    <p>modalWindow</p>
-                 </Modal>
+                </Modal>
                 
               </Nav>
             </Navbar.Collapse>
