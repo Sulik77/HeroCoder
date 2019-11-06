@@ -1,5 +1,6 @@
 import React from "react";
 import "./tests.css";
+import Button from 'react-bootstrap/Button';
 
 export default class Test extends React.Component {
   constructor(props) {
@@ -36,8 +37,8 @@ export default class Test extends React.Component {
                         <code>{element.code}</code>
                       </div>
                     ) : (
-                      ""
-                    )}
+                        ""
+                      )}
                     <div className="test-answerd-wrap">
                       {element.variants.map((variant, index) => {
                         return (
@@ -53,7 +54,12 @@ export default class Test extends React.Component {
                 </div>
               );
             })}
-            <button>GO</button>
+          <div className="go">
+            <Button variant="outline-primary" size="lg" block>
+             GO
+            </Button>
+          </div>
+          
         </form>
       </div>
     );
