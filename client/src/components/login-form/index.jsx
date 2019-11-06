@@ -12,7 +12,7 @@ class Login extends Component {
       error: null
     };
   }
-  handleImput = e => {
+  handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 

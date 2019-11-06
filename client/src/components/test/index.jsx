@@ -21,24 +21,29 @@ export default class Test extends React.Component {
         const data = await resp.json();
         await this.setState({ questions: data });
         console.log(this.state.questions);
-        
+
     };
 
     render() {
         return (
             <div>
                 <form>
-                    {this.state.questions&&this.state.questions.map((element, index) => {
-                       return <div key={index}>
-                            <p>{element.question}</p>
-                            <code>{element.code}</code>
-                            {element.variants.map((variant,index) => {
-                               return <div>
-                                   <input key={10*index} type="radio"/>
-                                   <p>{variant}</p>
-                               </div>
+                    {this.state.questions && this.state.questions.map((element, index) => {
 
-                            })}
+                        return <div key={index}>
+                            <div>
+                                <p>{element.question}</p>
+                                <code>{element.code}</code>
+                                {element.variants.map((variant, index) => {
+                                    return <div>
+                                        <input key={10 * index} type="radio">
+                                        </input>
+                                        <a>{variant}</a>
+                                    </div>
+
+                                })}
+                                <p></p>
+                            </div>
                         </div>
                     })}
                 </form>
