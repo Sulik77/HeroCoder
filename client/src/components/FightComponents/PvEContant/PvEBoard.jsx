@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
-import { StartFightAC, winFightAC } from "../../../redux/actions";
+import {
+  StartFightAC,
+  winFightFunctionAC,
+  loseFightFunctionAC
+} from "../../../redux/actions";
 
 import CreateMob from "./helpers/createMob/createMob";
 import startFight from "./helpers/initialFight/initialFight";
@@ -45,7 +49,12 @@ class PvEBoard extends React.Component {
     });
     if (this.state.player.stats.health > 0) {
       const goldCreate = Math.floor(Math.random() * 21);
-      this.props.winFight(goldCreate);
+      this.props.winFight(this.state.player.name, goldCreate);
+      console.log(goldCreate);
+    } else {
+      const goldCreate = -Math.floor(Math.random() * 21);
+      this.props.loseFight(this.state.player.name, goldCreate);
+      console.log(goldCreate);
     }
   };
 
@@ -148,7 +157,8 @@ class PvEBoard extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     Figth: () => dispatch(StartFightAC()),
-    winFight: gold => dispatch(winFightAC(gold))
+    winFight: (user, gold) => dispatch(winFightFunctionAC(user, gold)),
+    loseFight: (user, gold) => dispatch(loseFightFunctionAC(user, gold))
   };
 }
 
