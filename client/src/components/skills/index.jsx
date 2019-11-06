@@ -26,11 +26,13 @@ export default class Skills extends React.Component {
 
 
   render() {
+    console.log('skills render');
+    
 
     return (
 
       <div className="body">
-        <Link to="/">
+        <Link to="/homepage">
           <div className="home">Home Page</div>
         </Link>
         <div className='perks-title--wrap'>

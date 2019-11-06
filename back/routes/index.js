@@ -57,7 +57,7 @@ router.route("/signup").post(async (req, res) => {
     });
     await user.save();
     req.session.user = user;
-    res.json({ username: user.username, email: user.email });
+    res.json({ username: user.username, email: user.email, hero:user.hero });
   } else {
     const message = "Такой пользователь уже существует";
     res.json({ status: 1, error: message });

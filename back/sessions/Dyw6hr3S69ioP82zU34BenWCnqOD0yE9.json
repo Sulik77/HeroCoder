@@ -1,0 +1,21 @@
+{
+    "cookie": {
+        "originalMaxAge": 600000,
+        "expires": "2019-11-06T12:59:06.363Z",
+        "httpOnly": true,
+        "path": "/"
+    },
+    "user": {
+        "_id": "5dc2bf223f817517e741bf7a",
+        "username": "test",
+        "email": "test@test.ru",
+        "password": "test",
+        "hero": {
+            "gold": 5,
+            "health": 300,
+            "damage": 10
+        },
+        "__v": 0
+    },
+    "__lastAccess": 1573044546364
+}
