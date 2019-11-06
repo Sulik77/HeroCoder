@@ -17,9 +17,10 @@ const initialState = {
   }
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case START_FIGHT: {
+      return
     }
     case LOGIN: {
       return {
@@ -28,7 +29,6 @@ export default function(state = initialState, action) {
         loggedin: true
       };
     }
-
     default:
       return state;
   }

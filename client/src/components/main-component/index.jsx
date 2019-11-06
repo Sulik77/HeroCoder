@@ -1,9 +1,9 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
 import FightApp from "../FightComponents/FightApp";
 import PvEBoard from "../FightComponents/PvEContant/PvEBoard";
-import HomePage from "../homepage";
+// import HomePage from "../homepage";
 import Skills from "../skills";
 import loginForm from "../login-form";
 import Registration from "../registration";

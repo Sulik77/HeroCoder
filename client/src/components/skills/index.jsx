@@ -1,4 +1,4 @@
-import Skil from "../skill"
+import Skill from "../skill"
 import "./Skills.css";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -40,7 +40,7 @@ export default class Skills extends React.Component {
         </div>
         <div className="container-perks">
           {this.state.skills.map((element, index) => (
-            <Skil data={element} key={index} />
+            <Skill data={element} key={index} />
           ))}
 
         </div>

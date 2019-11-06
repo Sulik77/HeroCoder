@@ -1,4 +1,4 @@
-.skil {
+.skill {
   width: 123px;
   height: 123px;
   border-radius: 15px;
@@ -13,11 +13,11 @@
   box-sizing: border-box;
 }
 
-.skil-wrap {
+.skill-wrap {
   width: 33%;
 }
 
-.skil img {
+.skill img {
   margin: 0;
   flex: 1;
 }

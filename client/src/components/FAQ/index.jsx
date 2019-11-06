@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import { Nav, Navbar, Image, Form, Button } from 'react-bootstrap';
+// import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Nav, Navbar } from 'react-bootstrap';
+import Modal from '../modal/Modal'
 
 import "./Faq.css";
 class Faq extends React.Component {
@@ -15,20 +16,21 @@ class Faq extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link href="/figth">Figth</Nav.Link>
+                <Nav.Link href="/figth">Fight</Nav.Link>
                 <Nav.Link href="/skill">Skills</Nav.Link>
               </Nav>
               <Nav>
-                <Form inline>
-                  <Button className="login" href="/login" type="submit">Login</Button>
-                </Form>
+
+                <Modal>
+                  <p>hvhghgh</p>
+                </Modal>
+
               </Nav>
             </Navbar.Collapse>
           </Navbar>
           <div className="content-z">
             Welcom to the Hero Coder
           </div>
-          {/* <Image src="./img/barbarian.jpg" fluid /> */}
         </div>
       </Router>
     );
