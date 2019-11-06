@@ -64,7 +64,7 @@ class MoveLocation extends React.Component {
           <button className="move-btn move-btn_next" onClick={this.moveNext}>
             Двигаться дальше
           </button>
-          <Link className="move-btn_link" to="/">
+          <Link className="move-btn_link" to="/homepage">
             <button className="move-btn move-btn_back" onClick={this.moveNext}>
               Вернуться в город
             </button>

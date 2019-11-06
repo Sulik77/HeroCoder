@@ -48,5 +48,4 @@ class Faq extends React.Component {
     );
   }
 }
-
 export default Faq;

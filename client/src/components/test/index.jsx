@@ -58,8 +58,7 @@ export default class Test extends React.Component {
             <Button variant="outline-primary" size="lg" block>
              GO
             </Button>
-          </div>
-          
+          </div>       
         </form>
       </div>
     );

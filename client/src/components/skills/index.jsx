@@ -32,7 +32,7 @@ export default class Skills extends React.Component {
     return (
 
       <div className="body">
-        <Link to="/">
+        <Link to="/homepage">
           <div className="home">Home Page</div>
         </Link>
         <div className='perks-title--wrap'>

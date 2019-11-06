@@ -131,7 +131,7 @@ class PvEBoard extends React.Component {
             {this.state.statusFight === "hold" ? (
               " "
             ) : (
-              <Link to="/">
+              <Link to="/homepage">
                 <div className="fightApp-btn__home">Домой</div>
               </Link>
             )}
