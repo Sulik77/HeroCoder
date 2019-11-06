@@ -19,7 +19,7 @@ class Registration extends Component {
       
         <div className='register'>
 
-          <Button variant="primary" type="button" onClick={(e) => this.setState({ isOpen: true })}>Registration</Button>
+          <Button variant="outline-info" type="button" onClick={(e) => this.setState({ isOpen: true })}>Registration</Button>
           <DialogRegistration isOpen={this.state.isOpen} onClose={(e) => {
             this.setState({ isOpen: false })
           }}>

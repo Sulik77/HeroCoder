@@ -46,7 +46,7 @@ class Modal extends Component {
     return (
       <div className='dialog'>
 
-        <Button variant="primary" type="button" onClick={(e) => this.setState({ isOpen: true })}>Login</Button>
+        <Button variant="outline-success" type="button" onClick={(e) => this.setState({ isOpen: true })}>Login</Button>
 
         <Dialog isOpen={this.state.isOpen} onClose={(e) => {
           this.setState({ isOpen: false })
