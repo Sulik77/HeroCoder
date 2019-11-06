@@ -1,9 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Nav, Navbar} from 'react-bootstrap';
-import Modal from '../modal/Modal'
-import Registration from '../modalRigestration'
+import Modal from '../modal-login';
+import Registration from '../modal-registration';
 
 import "./Faq.css";
 class Faq extends React.Component {
@@ -22,18 +21,11 @@ class Faq extends React.Component {
               </Nav>
               <Nav>
                 <div className="registration">
-
                <Registration>
-                 <p>
-                   sd
-                 </p>
                </Registration>
                 </div>
-
                 <Modal> 
-                   <p>modalWindow</p>
                 </Modal>
-                
               </Nav>
             </Navbar.Collapse>
           </Navbar>

@@ -34,7 +34,7 @@ class DialogRegistration extends Component {
   render() {
     let dialog = (
       <div style={dialogStyles}>
-        <button value="button" style={dialogCloseButtonStyles} onClick={this.props.onClose}>x</button>
+        <button value="button" style={dialogCloseButtonStyles} onClick={this.props.onClose} />
         {this.props.children}
       </div>
     )

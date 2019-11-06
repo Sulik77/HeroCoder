@@ -1,10 +1,8 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-
 import FightApp from "./FightComponents/FightApp";
 import Faq from "../components/FAQ";
 import Skills from "../components/skills";
-import loginForm from "./login-form";
 import FightLocation from "./FightComponents/FightLocation";
 import Test from "./test";
 import MoveLocation from "./FightComponents/MoveLocation/MoveLocation";
@@ -18,7 +16,6 @@ class App extends React.Component {
       <Router>
         <div className="full-screen">
           <Route exact path="/" component={Faq} />
-          <Route exact path="/login" component={loginForm} />
           <Route exact path="/skill" component={Skills} />
           <Route exact path="/fight" component={FightApp} />
           <Route exact path="/figth/pve/locations" component={FightLocation} />
