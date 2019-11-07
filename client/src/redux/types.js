@@ -1,3 +1,3 @@
 export const START_FIGHT = "START_FIGHT";
 export const LOGIN = "LOGIN";
-export const WIN_FIGHT = "WIN_FIGHT";
+export const END_FIGHT = "END_FIGHT";

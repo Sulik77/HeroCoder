@@ -37,6 +37,8 @@ class MoveLocation extends React.Component {
   componentDidMount() {
     const params = this.props.match.params.location;
     const playerInitial = JSON.parse(JSON.stringify(this.props.player));
+    console.log(playerInitial);
+
     this.setState({
       locationParams: params,
       player: playerInitial
@@ -77,7 +79,7 @@ class MoveLocation extends React.Component {
 
 function mapStateToProps(store) {
   return {
-    player: store.player
+    player: store.user.player
   };
 }
 
