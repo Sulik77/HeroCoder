@@ -9,14 +9,12 @@ import MoveLocation from "./FightComponents/MoveLocation/MoveLocation";
 import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import HomePage from "./homepage";
 
-
 export default class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       checkSession: false
-    }
+    };
   }
 
   componentDidMount = async () => {
@@ -27,11 +25,11 @@ export default class App extends React.Component {
         "Content-Type": "application/json"
       }
     });
-      const data = await resp.json();
-      if (data) {
-        this.setState({ checkSession: true });
-      }
+    const data = await resp.json();
+    if (data) {
+      this.setState({ checkSession: true });
     }
+  };
 
   render() {
     return (
@@ -39,33 +37,36 @@ export default class App extends React.Component {
         <div className="full-screen">
           <Route exact path="/" component={Faq} />
 
-          {this.state.checkSession ?
+          {this.state.checkSession ? (
             <>
               <Route exact path="/skill" component={Skills} />
               <Route exact path="/fight" component={FightApp} />
-              <Route exact path="/figth/pve/locations" component={FightLocation} />
+              <Route
+                exact
+                path="/figth/pve/locations"
+                component={FightLocation}
+              />
               <Route exact path="/figth/pve/fight" component={PvEBoard} />
               <Route exact path="/skill/test" component={Test} />
-              <Route exact path="/test" component={MoveLocation} />
               <Route exact path="/homepage" component={HomePage} />
+              <Route
+                path="/figth/pve/locations/:location"
+                component={MoveLocation}
+              />
             </>
-            : <>
+          ) : (
+            <>
               <Route exact path="/skill" component={Faq} />
               <Route exact path="/fight" component={Faq} />
               <Route exact path="/figth/pve/locations" component={Faq} />
               <Route exact path="/figth/pve/fight" component={Faq} />
               <Route exact path="/skill/test" component={Faq} />
-              <Route exact path="/test" component={Faq} />
               <Route exact path="/homepage" component={Faq} />
-            </>}
-          <Route
-            path="/figth/pve/locations/:location"
-            component={MoveLocation}
-          />
-
+              <Route path="/figth/pve/locations/:location" component={Faq} />
+            </>
+          )}
         </div>
       </Router>
     );
   }
 }
-
