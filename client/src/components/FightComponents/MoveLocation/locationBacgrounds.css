@@ -1,32 +1,27 @@
 /* --------------Руины--------------*/
 
 .location-going-layaout--ruins-0 {
-  background: url("https://orig11.deviantart.net/54e7/f/2012/091/b/a/jungle_ruins_by_odobenus-d4ulq2o.png")
-    no-repeat center;
+  background: url("/../img/locations/ruins/1") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-1 {
-  background: url("https://s.poembook.ru/theme/cc/29/6c/a48f3c655efd924592a996b2d3fbb578d2cb3b05.jpeg")
-    no-repeat center;
+  background: url("/../img/locations/ruins/2") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-2 {
-  background: url("https://pp.vk.me/c626526/v626526319/2e41e/TBy3p35hnzI.jpg")
-    no-repeat center;
+  background: url("/../img/locations/ruins/3") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-3 {
-  background: url("http://samlib.ru/img/m/moroz_w_a/runa/ruin_exploration_by_siberionsnow-d66qw3g.jpg")
-    no-repeat center;
+  background: url("/../img/locations/ruins/4") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-4 {
-  background: url("https://69.media.tumblr.com/c1a5da9f64ae35671115012b32854055/tumblr_pnxip4eYJE1va87k2o2_1280.jpg")
-    no-repeat center;
+  background: url("/../img/locations/ruins/5") no-repeat center;
   background-size: cover;
 }
 
