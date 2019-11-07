@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from 'react-router'
-
 import "./Skill.css";
 
 class Skill extends React.Component {
