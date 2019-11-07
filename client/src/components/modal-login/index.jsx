@@ -7,13 +7,16 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router';
 
 class Modal extends Component {
-  state = {
-    isOpen: false,
-    email: "",
-    password: "",
-    error: null
+  constructor(props){
+    super(props)
+      this.state = {
+      isOpen: false,
+      email: "",
+      password: "",
+      error: null
+    }
   }
-
+    
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

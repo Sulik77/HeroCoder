@@ -7,12 +7,15 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router';
 
 class Registration extends Component {
-  state = {
-    isOpen: false,
-    username: "",
-    email: "",
-    password: "",
-    error: ""
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+      username: "",
+      email: "",
+      password: "",
+      error: ""
+    }
   }
 
   onChange = e => {
@@ -31,7 +34,6 @@ class Registration extends Component {
       body: JSON.stringify(this.state)
     });
     const data = await resp.json();
-    console.log("data:",data);
     if (data.status === 1) {
       this.setState({
         username: "",
@@ -39,9 +41,7 @@ class Registration extends Component {
         password: "",
         error: data.error
       });
-      console.log("error");
     } else {
-      console.log("ya tut");
       this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }

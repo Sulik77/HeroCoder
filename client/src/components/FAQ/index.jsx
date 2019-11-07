@@ -2,8 +2,6 @@ import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
 import Modal from '../modal-login';
 import Registration from '../modal-registration';
-import { loginAC } from "../../redux/actions";
-import { connect } from "react-redux";
 import "./Faq.css";
 
 export default class Faq extends React.Component {
@@ -41,7 +39,6 @@ export default class Faq extends React.Component {
                 bosses, artifacts and many events. This is a world where magic and
                 steel triumph.
                 </p>
-
           </div>
 
         </div>

@@ -86,7 +86,13 @@ router.route("/signup")
 
 router.get("/api/check-sesion", async (req, res) => {
   const user = req.session.user;
-  res.json(user);
+  const error = false;
+  if (user === undefined){
+    res.json(error)
+  }
+  else {  
+    res.json(user);
+  }
 });
 
 module.exports = router;
