@@ -197,6 +197,11 @@
 }
 
 @media screen and ( max-width: 1024px) {
+  .fightApp-wrap{
+    display: flex;
+    flex-direction: column;
+    
+  }
   .fightApp-link {
     width: unset;
   }
@@ -213,6 +218,10 @@
   }
 
   .fightApp-home__link span {
-    font-size: 24px;
+    font-size: 18px;
+  }
+  .location-wrap{
+    display: flex;
+    flex-direction: column;
   }
 }

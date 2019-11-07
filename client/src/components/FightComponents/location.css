@@ -33,11 +33,11 @@
 }
 
 @media screen and ( max-width: 1024px) {
-  .fightApp-wrap{
+  .locations-wrap{
     display: flex;
     flex-direction: column;
-    
   }
+
 }
 
 .location-link-layaout--ruins {
@@ -59,4 +59,40 @@
   left: 25%;
   color: blanchedalmond;
   font-weight: 800;
+}
+
+@media screen and ( max-width: 1024px) {
+  .locations-bacground{
+      background-position-y: center;
+      background-size: 100;
+      height: unset;
+  }
+  .location-link-layaout--forest{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin:30px 30px ;
+    
+  }
+  .location-link-layaout--caves{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin:30px 30px ;
+    
+  }
+  .location-link-layaout--ruins{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin:30px 30px ;
+    
+  }
+  .location-link__desc{
+    padding: 0 0 0 135px;
+  }
+  
 }
