@@ -1,6 +1,6 @@
 import React from "react";
 import "./tests.css";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
 
@@ -53,13 +53,18 @@ class Test extends React.Component {
                         <code>{element.code}</code>
                       </div>
                     ) : (
-                        ""
-                      )}
+                      ""
+                    )}
                     <div className="test-answerd-wrap">
                       {element.variants.map((variant, index) => {
                         return (
                           <div className="test-answerd">
-                            <input key={10 * index} type="radio"></input>
+                            <input
+                              // value={`option${index}`}
+                              // checked={false}
+                              key={10 * index}
+                              type="radio"
+                            ></input>
                             <a>{variant}</a>
                           </div>
                         );
