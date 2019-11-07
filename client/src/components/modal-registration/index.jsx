@@ -31,6 +31,7 @@ class Registration extends Component {
       body: JSON.stringify(this.state)
     });
     const data = await resp.json();
+    console.log("data:",data);
     if (data.status === 1) {
       this.setState({
         username: "",
@@ -38,10 +39,9 @@ class Registration extends Component {
         password: "",
         error: data.error
       });
-      console.log(this.state);
-
-
+      console.log("error");
     } else {
+      console.log("ya tut");
       this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }
@@ -94,7 +94,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(withRouter(Registration));
+)((Registration)));

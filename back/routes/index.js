@@ -51,18 +51,32 @@ router.route("/signup")
         username: req.body.username,
         email: req.body.email,
         password: pass,
-        hero: {
-          gold: 5,
-          health: 300,
-          damage: 10
+        player: {
+          type: "player",
+          name: req.body.username,
+          avatar:
+            "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
+          percs: [],
+          stats: {
+            lvl: 1,
+            health: 300,
+            damage: 10
+          },
+          gold: 5
         }
       });
       await user.save();
       req.session.user = user;
       res.json(
-        {
-          username: user.username,
-          hero: { gold: user.hero.gold, health: user.hero.health, damage: user.hero.damage }
+        { username:user.username,
+          player: {
+            type: user.type,
+            name: user.username,
+            avatar:user.avatar,
+            percs: [user.percs],
+            stats: {...user.stats},
+            gold: user.gold
+          }
         });
     } else {
       const message = "Такой пользователь уже существует";
