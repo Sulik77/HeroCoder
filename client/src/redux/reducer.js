@@ -17,13 +17,9 @@ export default function(state = initialState, action) {
       };
     }
     case END_FIGHT: {
-      console.log("state=======>", state);
-
-      const inialPlayer = state.user.player;
-      inialPlayer.gold += action.gold;
       return {
         ...state,
-        user: inialPlayer
+        user: action.userInitial
       };
     }
     default:
