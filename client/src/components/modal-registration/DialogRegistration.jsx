@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Button } from 'react';
 
 
 let dialogStyles = {
@@ -34,7 +34,7 @@ class DialogRegistration extends Component {
   render() {
     let dialog = (
       <div style={dialogStyles}>
-        <button value="button" style={dialogCloseButtonStyles} onClick={this.props.onClose} />
+        <button value="button" style={dialogCloseButtonStyles} onClick={this.props.onClose} >x</button>
         {this.props.children}
       </div>
     )

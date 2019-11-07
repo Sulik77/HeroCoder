@@ -73,8 +73,7 @@ class Registration extends Component {
               <Form.Label>Password</Form.Label>
               <Form.Control name="password" onChange={this.onChange} value={this.state.password} required type="password" placeholder="Password" />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+            <Form.Group controlId="formBasicCheckbox">    
             </Form.Group>
             <Button variant="primary" type="submit">
               Registration
