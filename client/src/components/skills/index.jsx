@@ -14,21 +14,16 @@ class Skills extends React.Component {
   }
 
   componentDidMount = async () => {
-    
-      const resp = await fetch("/api/check-sesion", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      });
-      const data = await resp.json();
-      console.log("Skills",data);
-      if (data.status === 1) {
-        this.setState({ error: data.error });
-      } else {
-        this.props.login(data);
-    }
+
+    const resp = await fetch("/api/update-store", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await resp.json();
+    this.props.login(data);
 
     const respGetSkills = await fetch("/api/skills", {
       method: "GET",
@@ -44,7 +39,7 @@ class Skills extends React.Component {
 
   render() {
     console.log('skills render');
-    
+
 
     return (
 
@@ -64,7 +59,8 @@ class Skills extends React.Component {
 
         </div>
       </div>
-    )}
+    )
+  }
 
 }
 

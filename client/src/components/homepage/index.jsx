@@ -9,7 +9,7 @@ class HomePage extends React.Component {
 
 
   componentDidMount = async () => {
-    const resp = await fetch("/api/check-sesion", {
+    const resp = await fetch("/api/update-store", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -17,12 +17,7 @@ class HomePage extends React.Component {
       }
     });
     const data = await resp.json();
-    console.log("HomePage", data);
-    if (data.status === 1) {
-      this.setState({ error: data.error });
-    } else {
-      this.props.login(data);
-    }
+    this.props.login(data);
   }
 
   render() {
