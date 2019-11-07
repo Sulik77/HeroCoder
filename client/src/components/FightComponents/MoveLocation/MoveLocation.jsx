@@ -6,6 +6,8 @@ import PvEBoard from "../PvEContant/PvEBoard";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { loginAC } from "../../../redux/actions";
+
 class MoveLocation extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,43 @@ class MoveLocation extends React.Component {
       locationParams: ""
     };
   }
+
+  componentDidMount = async () => {
+    console.log(1);
+
+    const login = await fetch("/api/check-sesion", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const session = await login.json();
+    console.log("session", session);
+
+    const resp = await fetch("/api/update-store", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(session)
+    });
+
+    const data = await resp.json();
+    console.log(data);
+
+    this.props.login(data);
+
+    const params = this.props.match.params.location;
+    const playerInitial = JSON.parse(JSON.stringify(this.props.player));
+
+    this.setState({
+      locationParams: params,
+      player: playerInitial
+    });
+  };
+
   moveNext = () => {
     let data = this.state.locationImage;
     let number = Math.floor(Math.random() * 5);
@@ -33,17 +72,6 @@ class MoveLocation extends React.Component {
       });
     }
   };
-
-  componentDidMount() {
-    const params = this.props.match.params.location;
-    const playerInitial = JSON.parse(JSON.stringify(this.props.player));
-    console.log(playerInitial);
-
-    this.setState({
-      locationParams: params,
-      player: playerInitial
-    });
-  }
 
   render() {
     if (this.state.fight) {
@@ -84,7 +112,9 @@ function mapStateToProps(store) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // return {};
+  return {
+    login: data => dispatch(loginAC(data))
+  };
 }
 
 export default connect(
