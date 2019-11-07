@@ -116,36 +116,6 @@ class HomePage extends React.Component {
                     {this.props.user && this.props.user.percs[4]}
                   </div>
                 </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[5]}
-                  </div>
-                </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[6]}
-                  </div>
-                </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[7]}
-                  </div>
-                </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[8]}
-                  </div>
-                </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[9]}
-                  </div>
-                </div>
-                <div className="profile-skill__wrap">
-                  <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[10]}
-                  </div>
-                </div>
               </div>
               <div className="profile-wrap-stats profile-wrap-stats--gold">
                 <div className="profile-wrap-stats--gold_wrap">
