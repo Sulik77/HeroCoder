@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
-import { StartFightAC, winFightAC } from "../../../redux/actions";
+import { StartFightAC, endFightAC } from "../../../redux/actions";
 
 import CreateMob from "./helpers/createMob/createMob";
 import startFight from "./helpers/initialFight/initialFight";
@@ -148,7 +148,7 @@ class PvEBoard extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     Figth: () => dispatch(StartFightAC()),
-    winFight: gold => dispatch(winFightAC(gold))
+    winFight: gold => dispatch(endFightAC(gold))
   };
 }
 

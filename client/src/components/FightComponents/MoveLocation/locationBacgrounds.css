@@ -1,90 +1,80 @@
 /* --------------Руины--------------*/
 
 .location-going-layaout--ruins-0 {
-  background: url("/../img/locations/ruins/1") no-repeat center;
+  background: url("/img/locations/ruins/1.png") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-1 {
-  background: url("/../img/locations/ruins/2") no-repeat center;
+  background: url("/img/locations/ruins/2.jpeg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-2 {
-  background: url("/../img/locations/ruins/3") no-repeat center;
+  background: url("/img/locations/ruins/3.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-3 {
-  background: url("/../img/locations/ruins/4") no-repeat center;
+  background: url("/img/locations/ruins/4.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--ruins-4 {
-  background: url("/../img/locations/ruins/5") no-repeat center;
+  background: url("/img/locations/ruins/5.jpg") no-repeat center;
   background-size: cover;
 }
 
 /* --------------Леса--------------*/
 
 .location-going-layaout--forest-0 {
-  background: url("https://avatars.mds.yandex.net/get-pdb/1806815/77e86248-f42d-44fb-b7ef-c13e9bb21ee4/s1200?webp=false")
-    no-repeat center;
+  background: url("/img/locations/forest/1.jpeg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--forest-1 {
-  background: url("http://images6.fanpop.com/image/polls/1677000/1677489_1522619662270_full.jpg")
-    no-repeat center;
+  background: url("/img/locations/forest/2.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--forest-2 {
-  background: url("https://u.livelib.ru/reader/Vemnos/o/nguop6h2/o-o.jpeg")
-    no-repeat center;
+  background: url("/img/locations/forest/3.jpeg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--forest-3 {
-  background: url("https://s3-eu-west-1.amazonaws.com/files.surfory.com/uploads/2019/2/1/552cc1db1f395daf548b46c6/5c53d4eabd0470943e8b4600.jpg")
-    no-repeat center;
+  background: url("/img/locations/forest/4.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--forest-4 {
-  background: url("https://avatars.mds.yandex.net/get-pdb/1899556/8210b223-3034-400d-84f8-5eae96477bae/s1200?webp=false")
-    no-repeat center;
+  background: url("/img/locations/forest/5.jpeg") no-repeat center;
   background-size: cover;
 }
 
 /* --------------Пещеры--------------*/
 
 .location-going-layaout--caves-0 {
-  background: url("https://discourse-cloud-file-uploads.s3.dualstack.us-west-2.amazonaws.com/business5/uploads/gemsofwar/original/3X/7/f/7fbe12b1937e4b00195fedd0d16a08c0c5e3f1a5.jpg")
-    no-repeat center;
+  background: url("/img/locations/caves/1.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--caves-1 {
-  background: url("http://magspace.ru/uploads/2010/04/21/02-39AP69_from_www.anime-patchwork.ucoz.ru_(75).jpg")
-    no-repeat center;
+  background: url("/img/locations/caves/2.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--caves-2 {
-  background: url("https://i.pinimg.com/originals/4f/f5/c0/4ff5c0df87113311b86407fe4aa69d79.jpg")
-    no-repeat center;
+  background: url("/img/locations/caves/3.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--caves-3 {
-  background: url("https://i.ytimg.com/vi/x5AY0e2m7M4/maxresdefault.jpg")
-    no-repeat center;
+  background: url("/img/locations/caves/4.jpg") no-repeat center;
   background-size: cover;
 }
 
 .location-going-layaout--caves-4 {
-  background: url("http://dreamworlds.ru/uploads/posts/2009-12/1260994058_cave_by_zorcron.jpg")
-    no-repeat center;
+  background: url("/img/locations/caves/5.jpg") no-repeat center;
   background-size: cover;
 }

@@ -1,25 +1,13 @@
-import { START_FIGHT, LOGIN, WIN_FIGHT } from "./types";
+import { START_FIGHT, LOGIN, END_FIGHT } from "./types";
 
-const initialState = {
-  player: {
-    type: "player",
-    name: "player",
-    avatar:
-      "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
-    percs: [],
-    stats: {
-      lvl: 1,
-      health: 300,
-      damage: 10
-    },
-    gold: 5
-  }
-};
+const initialState = {};
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case START_FIGHT: {
-      return;
+      return {
+        ...state
+      };
     }
     case LOGIN: {
       return {
@@ -28,12 +16,14 @@ export default function(state = initialState, action) {
         loggedin: true
       };
     }
-    case WIN_FIGHT: {
-      const inialPlayer = state.player;
+    case END_FIGHT: {
+      console.log("state=======>", state);
+
+      const inialPlayer = state.user.player;
       inialPlayer.gold += action.gold;
       return {
         ...state,
-        player: inialPlayer
+        user: inialPlayer
       };
     }
     default:
