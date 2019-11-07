@@ -10,7 +10,7 @@ class HomePage extends React.Component {
 
   componentDidMount = async () => {
     const resp = await fetch("/api/update-store", {
-      method: "GET",
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"

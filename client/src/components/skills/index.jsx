@@ -14,17 +14,26 @@ class Skills extends React.Component {
   }
 
   componentDidMount = async () => {
-
-    const resp = await fetch("/api/update-store", {
+    const login = await fetch("/api/check-sesion", {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
     });
+    const session = await login.json();
+    console.log("session",session);
+    
+    const resp = await fetch("/api/update-store", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(session)
+    });
     const data = await resp.json();
     this.props.login(data);
-
     const respGetSkills = await fetch("/api/skills", {
       method: "GET",
       headers: {

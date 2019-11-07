@@ -101,8 +101,10 @@ router.put("/api/endFight", async (req, res) => {
 });
 
 
-router.get("/api/update-store", async (req, res) => {
+router.post("/api/update-store", async (req, res) => {
+  console.log(req.body);
   const user =  await User.findOne({ username: req.body.playerName });; 
+  console.log(user);
     res.json(user);
 });
 
