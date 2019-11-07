@@ -32,6 +32,14 @@
   background-size: cover;
 }
 
+@media screen and ( max-width: 1024px) {
+  .fightApp-wrap{
+    display: flex;
+    flex-direction: column;
+    
+  }
+}
+
 .location-link-layaout--ruins {
   background: url("https://orig11.deviantart.net/54e7/f/2012/091/b/a/jungle_ruins_by_odobenus-d4ulq2o.png")
     no-repeat center;
