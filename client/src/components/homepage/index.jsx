@@ -43,10 +43,14 @@ class HomePage extends React.Component {
               <Nav className="mr-auto"></Nav>
               <Nav>
                 <div className="registration">
-                  <Link to="/skill">Skills</Link>
+                  <Link className="profile-link" to="/skill">
+                    <span>Skills</span>
+                  </Link>
                 </div>
                 <div>
-                  <Link to="/fight">Fight</Link>
+                  <Link className="profile-link" to="/fight">
+                    <span>Fight</span>
+                  </Link>
                 </div>
               </Nav>
             </Navbar.Collapse>
@@ -151,8 +155,7 @@ class HomePage extends React.Component {
                     alt=""
                   />
                   <span className="profile-gold--value">
-                    {" "}
-                    {this.props.user.gold}{" "}
+                    {this.props.user.gold}
                   </span>
                 </div>
               </div>

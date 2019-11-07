@@ -128,3 +128,21 @@
   display: flex;
   justify-content: center;
 }
+.profile-link:hover {
+  text-decoration: none;
+}
+
+.profile-link span {
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 20px;
+  border: 5px solid rgb(241, 88, 32);
+  background-color: rgb(143, 45, 9);
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+.profile-link:hover span {
+  border: 5px solid rgb(161, 52, 13);
+  background-color: rgb(228, 69, 11);
+}
