@@ -8,8 +8,28 @@ import Test from "./test";
 import MoveLocation from "./FightComponents/MoveLocation/MoveLocation";
 import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import HomePage from "./homepage";
+import { loginAC } from "../redux/actions";
+import { connect } from "react-redux";
 
-class App extends React.Component {
+export default class App extends React.Component {
+
+  // componentDidMount = async () => {
+  //   const resp = await fetch("/api/check-sesion", {
+  //     method: "GET",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     }
+  //   });
+  //   const data = await resp.json();
+  //   console.log("App", data);
+  //   if (data.status === 1) {
+  //     this.setState({ error: data.error });
+  //   } else {
+  //     this.props.login(data);
+  //   }
+  // }
+
   render() {
     return (
       <Router>
@@ -33,4 +53,13 @@ class App extends React.Component {
   }
 }
 
-export default App;
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     login: data => dispatch(loginAC(data))
+//   };
+// }
+
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(App);

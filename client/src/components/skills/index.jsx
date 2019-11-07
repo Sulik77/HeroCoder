@@ -2,9 +2,10 @@ import Skill from "../skill"
 import "./Skills.css";
 import React from "react";
 import { Link } from "react-router-dom";
- 
+import { loginAC } from "../../redux/actions";
+import { connect } from "react-redux";
 
-export default class Skills extends React.Component {
+class Skills extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,15 +14,31 @@ export default class Skills extends React.Component {
   }
 
   componentDidMount = async () => {
-    let resp = await fetch("/api/skills", {
+    
+      const resp = await fetch("/api/check-sesion", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      const data = await resp.json();
+      console.log("Skills",data);
+      if (data.status === 1) {
+        this.setState({ error: data.error });
+      } else {
+        this.props.login(data);
+    }
+
+    const respGetSkills = await fetch("/api/skills", {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       }
     });
-    const data = await resp.json();
-    this.setState({ skills: data })
+    const dataSkills = await respGetSkills.json();
+    this.setState({ skills: dataSkills })
   }
 
 
@@ -50,3 +67,14 @@ export default class Skills extends React.Component {
     )}
 
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: data => dispatch(loginAC(data))
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Skills);

@@ -29,9 +29,13 @@ class Modal extends Component {
       body: JSON.stringify(this.state)
     });
     const data = await resp.json();
-    console.log("121212",data);
     if (data.status === 1) {
-      this.setState({ error: data.error });
+      this.setState({
+        username: "",
+        email: "",
+        password: "",
+        error: data.error
+      });
     } else {
       this.props.login(data);
       this.setState({ isOpen: false });
@@ -47,6 +51,7 @@ class Modal extends Component {
           this.setState({ isOpen: false })
         }}>
           <Form onSubmit={this.onSubmit}>
+          <p className="error">{this.state.error}</p>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control required name="email" onChange={this.handleInput} type="email" placeholder="Enter email" />
@@ -56,7 +61,7 @@ class Modal extends Component {
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control required name="password" onChange={this.handleInput} type="password" placeholder="Password" />
+              <Form.Control required name="password" value={this.state.password} onChange={this.handleInput} type="password" placeholder="Password" />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />

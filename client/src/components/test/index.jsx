@@ -1,8 +1,10 @@
 import React from "react";
 import "./tests.css";
 import Button from 'react-bootstrap/Button';
+import { loginAC } from "../../redux/actions";
+import { connect } from "react-redux";
 
-export default class Test extends React.Component {
+class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +12,7 @@ export default class Test extends React.Component {
     };
   }
   componentDidMount = async () => {
-    let resp = await fetch("/api/test", {
+    const resp = await fetch("/api/check-sesion", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -18,8 +20,22 @@ export default class Test extends React.Component {
       }
     });
     const data = await resp.json();
-    await this.setState({ questions: data });
-    console.log(this.state.questions);
+    console.log("Test", data);
+    if (data.status === 1) {
+      this.setState({ error: data.error });
+    } else {
+      this.props.login(data);
+    }
+
+    const respGetTest = await fetch("/api/test", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const dataTest = await respGetTest.json();
+    await this.setState({ questions: dataTest });
   };
 
   render() {
@@ -56,11 +72,22 @@ export default class Test extends React.Component {
             })}
           <div className="go">
             <Button variant="outline-primary" size="lg" block>
-             GO
+              GO
             </Button>
-          </div>       
+          </div>
         </form>
       </div>
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: data => dispatch(loginAC(data))
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Test);
