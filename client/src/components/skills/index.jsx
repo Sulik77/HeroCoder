@@ -32,8 +32,11 @@ class Skills extends React.Component {
       },
       body: JSON.stringify(session)
     });
+
     const data = await resp.json();
     this.props.login(data);
+
+    
     const respGetSkills = await fetch("/api/skills", {
       method: "GET",
       headers: {
