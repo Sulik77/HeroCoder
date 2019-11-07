@@ -1,4 +1,4 @@
-import { START_FIGHT, LOGIN, WIN_FIGHT } from "./types";
+import { START_FIGHT, LOGIN } from "./types";
 
 const initialState = {
   user: { username: " ", email: " " },
@@ -30,14 +30,7 @@ export default function(state = initialState, action) {
         loggedin: true
       };
     }
-    case WIN_FIGHT: {
-      const inialPlayer = state.player;
-      inialPlayer.gold += action.gold;
-      return {
-        ...state,
-        player: inialPlayer
-      };
-    }
+
     default:
       return state;
   }

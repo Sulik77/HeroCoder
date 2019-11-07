@@ -13,22 +13,7 @@ const loginAC = data => {
   };
 };
 
-const winFightAC = goldValue => {
-  return {
-    type: WIN_FIGHT,
-    gold: goldValue
-  };
-};
-
-const loseFightAC = goldValue => {
-  return {
-    type: WIN_FIGHT,
-    gold: goldValue
-  };
-};
-
 const winFightFunctionAC = (user, goldValue) => {
-  console.log(user);
   const fightResult = {
     playerName: user,
     gold: goldValue
