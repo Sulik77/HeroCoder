@@ -58,7 +58,10 @@ class HomePage extends React.Component {
           <div className="profile-wrap">
             <div className="profile-container">
               <div className="profile-container-avatar">
-                <img src={this.props.user.avatar} alt="avatar" />
+                <img
+                  src={this.props.user && this.props.user.avatar}
+                  alt="avatar"
+                />
               </div>
               <div className="profile-container-stats">
                 <p className="profile-desc">Характеристики</p>
@@ -125,7 +128,7 @@ class HomePage extends React.Component {
                     alt=""
                   />
                   <span className="profile-gold--value">
-                    {this.props.user.gold}
+                    {this.props.user && this.props.user.gold}
                   </span>
                 </div>
               </div>

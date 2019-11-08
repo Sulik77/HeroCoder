@@ -23,7 +23,7 @@ class FightLocation extends React.Component {
             </div>
           </Link>
         </div>
-        <Link to="/figth" className="fightApp-home">
+        <Link to="/fight" className="fightApp-home">
           <div className="fightApp-home__link">
             <span>Вернуться...</span>
           </div>

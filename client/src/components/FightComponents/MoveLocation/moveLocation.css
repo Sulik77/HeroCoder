@@ -15,9 +15,9 @@
   border-radius: 30px;
   font-size: 30px;
   font-weight: 800;
-  border: 10px solid rgb(59, 56, 55);
-  background-color: rgba(18, 228, 235, 0.3);
-  color: rgb(197, 102, 24);
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+  color: rgb(90, 81, 74);
   max-width: 330px;
 }
 
@@ -37,7 +37,54 @@
 
 .location-going-fight {
   min-height: 100vh;
-  padding-top: 10vh;
+  padding-top: 5vh;
+}
+
+.move-logs {
+  position: absolute;
+  height: 30vh;
+  width: 25%;
+  padding: 20px;
+  left: 30px;
+  bottom: 30px;
+  border: 8px solid rgb(102, 34, 10);
+  background-color: rgba(247, 104, 9, 0.7);
+  border-radius: 20px;
+}
+
+.move-logs--desc {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.move-logs--value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.move-stats {
+  position: absolute;
+  height: 30vh;
+  width: 25%;
+  padding: 20px;
+  right: 30px;
+  bottom: 30px;
+  border: 8px solid rgb(102, 34, 10);
+  background-color: rgba(247, 104, 9, 0.7);
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+.move-stats--desc {
+  font-size: 25px;
+  margin-right: 20px;
+  font-weight: 800;
+}
+
+.move-stats--value {
+  color: rgb(255, 255, 255);
+  font-size: 22px;
 }
 
 button:active,
