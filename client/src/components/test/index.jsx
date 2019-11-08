@@ -47,6 +47,7 @@ class Test extends React.Component {
       })
     })
     await this.setState({ trueAnswers: trueVariant })
+    console.log(this.state);
   };
 
   handleInput = async e => {
@@ -61,22 +62,23 @@ class Test extends React.Component {
     let trueAnswers = this.state.trueAnswers.sort();
     const test2 = JSON.stringify(answersUser);
     const test1 = JSON.stringify(trueAnswers);
+     const skill = this.props.match.params.id;
+    console.log(skill);
+    
     if (test2 === test1) {
      await this.setState({ done: true })
-     const skill = this.props.match.params.id;
-     const resp = await fetch("/api/check-session", {
+    //  const skill = this.props.match.params.id;
+     let resp = await fetch("/api/skill-learn", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify({skill})
     });
     const data = await resp.json();
-    if (data.status === 1) {
-     await this.setState({ error: data.error });
-    } else {
-      this.props.login(data);
-    }
+    console.log(data.player.percs);
+    
     }
     else {
      await this.setState({ done: false })

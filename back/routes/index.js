@@ -100,14 +100,26 @@ router.put("/api/endFight", async (req, res) => {
 });
 
 router.post("/api/update-store", async (req, res) => {
-  const user =  await User.findOne({ username: req.body.username });; 
-    res.json(user);
+  const user = await User.findOne({ username: req.body.username });;
+  res.json(user);
 });
 
 router.get("/api/logout", async (req, res) => {
   req.session.destroy();
-    res.json(true);
+  res.json(true);
 });
+
+router.post("/api/skill-learn", async (req, res) => {
+  const user = await User.findOne({ _id: req.session.user._id });
+  let skills = user.player.percs;
+  skills.push(req.body.skill);
+  const playerUpdate = user.player;
+  playerUpdate.percs = skills;
+  await User.findByIdAndUpdate({ _id: req.session.user._id }, { player: playerUpdate })
+  res.json(user);
+});
+
+
 
 
 
