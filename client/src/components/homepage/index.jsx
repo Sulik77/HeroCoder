@@ -26,10 +26,7 @@ class HomePage extends React.Component {
       body: JSON.stringify(session)
     });
     const data = await resp.json();
-    console.log(data);
     this.props.login(data);
-    console.log("USER ===>>>>", this.props.user);
-    console.log(this.props.user.stats.damage);
   };
 
   logout = async () => {

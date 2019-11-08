@@ -27,7 +27,7 @@ export default class App extends React.Component {
     });
     const data = await resp.json();
     if (data) {
-      this.setState({ checkSession: true });
+      await this.setState({ checkSession: true });
     }
   };
 
@@ -46,7 +46,7 @@ export default class App extends React.Component {
                 component={FightLocation}
               />
               <Route exact path="/figth/pve/fight" component={PvEBoard} />
-              <Route exact path="/skill/test" component={Test} />
+              <Route exact path="/skill/test/:id" component={Test} />
               <Route exact path="/homepage" component={HomePage} />
               <Route
                 path="/figth/pve/locations/:location"

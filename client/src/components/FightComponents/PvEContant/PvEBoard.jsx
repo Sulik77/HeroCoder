@@ -28,7 +28,7 @@ class PvEBoard extends React.Component {
 
   goToFight = async () => {
     this.props.Figth();
-    this.setState({
+   await this.setState({
       loading: true,
       statusFight: "fight",
       chanceEscape: false

@@ -12,8 +12,8 @@ class Login extends Component {
       error: null
     };
   }
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleInput = async e => {
+    await this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = async e => {
@@ -28,7 +28,7 @@ class Login extends Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({ error: data.error });
+      await this.setState({ error: data.error });
     } else {
       this.props.history.push("/");
       this.props.login(data);
