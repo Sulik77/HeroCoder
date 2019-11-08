@@ -42,8 +42,8 @@ class Registration extends Component {
         error: data.error
       });
     } else {
-      this.setState({ isOpen: false });
-      this.props.history.push("/homepage");
+     this.setState({ isOpen: false });
+      await this.props.history.push("/homepage");
     }
   };
 
