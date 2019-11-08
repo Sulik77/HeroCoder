@@ -3,14 +3,17 @@ import "./tests.css";
 import Button from "react-bootstrap/Button";
 import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       questions: [],
-      answers:[],
-      trueAnswers:[]
+      answers: [],
+      trueAnswers: [],
+      done: null
     };
   }
   componentDidMount = async () => {
@@ -23,7 +26,7 @@ class Test extends React.Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({ error: data.error });
+      await this.setState({ error: data.error });
     } else {
       this.props.login(data);
     }
@@ -37,23 +40,85 @@ class Test extends React.Component {
     });
     const dataTest = await respGetTest.json();
     await this.setState({ questions: dataTest });
+    let trueVariant = [];
+    dataTest.map(question => {
+      question.trueVariants.map(variants => {
+        trueVariant.push(variants);
+      });
+    });
+    await this.setState({ trueAnswers: trueVariant });
   };
 
   handleInput = async e => {
     const answer = this.state.answers;
-    answer.push(e.target.name)
+    answer.push(e.target.name);
     await this.setState({ answers: answer });
   };
 
   onSubmit = async e => {
     e.preventDefault();
-    console.log(this.state);
-  }
+    let answersUser = this.state.answers.sort();
+    let trueAnswers = this.state.trueAnswers.sort();
+    const test2 = JSON.stringify(answersUser);
+    const test1 = JSON.stringify(trueAnswers);
+    const skill = this.props.match.params.id;
+    console.log(skill);
 
+    if (test2 === test1) {
+      await this.setState({ done: true });
+      //  const skill = this.props.match.params.id;
+      let resp = await fetch("/api/skill-learn", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ skill })
+      });
+      const data = await resp.json();
+      console.log(data.player.percs);
+    }
+  };
+
+  resultQuestions = () => {
+    if (this.state.done === true) {
+      return (
+        <div className="tests-form-modals tests-form-modals--true">
+          <div className="form-modals-desc">
+            Мои поздравления, у вас все получилось <br />
+            Вы овладели новым навыком, но вам все равно есть чему учиться
+          </div>
+          <Link to="/">
+            <div className="form-modals-btn">Вернуться на главную</div>
+          </Link>
+        </div>
+      );
+    } else if (this.state.done === false) {
+      return (
+        <div className="tests-form-modals tests-form-modals--false">
+          <div className="form-modals-desc">
+            Соболезную, Сэр, но вы не справились с тестом. <br />
+            Советую вам подучить материал и попробовать вновь
+          </div>
+          <Link to="/">
+            <div className="form-modals-btn">Вернуться на главную</div>
+          </Link>
+        </div>
+      );
+    } else {
+      return "";
+    }
+  };
 
   render() {
     return (
       <div className="tests-form-wrap">
+        <div className={this.state.done !== null ? "test-form--bg-black" : ""}>
+          {" "}
+        </div>
+
+        {this.resultQuestions()}
+
         <form onSubmit={this.onSubmit} className="tests-form">
           {this.state.questions &&
             this.state.questions.map((element, index) => {
@@ -73,9 +138,9 @@ class Test extends React.Component {
                         return (
                           <div className="test-answerd">
                             <input
-                              // value={`option${index}`}
-                              // checked={false}
                               key={10 * index}
+                              name={variant}
+                              onChange={this.handleInput}
                               type="radio"
                             ></input>
                             <a>{variant}</a>
@@ -105,7 +170,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Test);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Test)
+);

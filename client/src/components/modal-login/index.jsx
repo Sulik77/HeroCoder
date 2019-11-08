@@ -17,8 +17,8 @@ class Modal extends Component {
     }
   }
     
-  handleInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleInput = async e => {
+   await this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = async e => {
@@ -33,7 +33,7 @@ class Modal extends Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({
+     await this.setState({
         username: "",
         email: "",
         password: "",
@@ -41,7 +41,7 @@ class Modal extends Component {
       });
     } else {
       this.props.login(data);
-      this.setState({ isOpen: false });
+      await this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }
   };

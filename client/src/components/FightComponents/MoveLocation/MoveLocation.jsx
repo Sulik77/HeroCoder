@@ -21,8 +21,6 @@ class MoveLocation extends React.Component {
   }
 
   componentDidMount = async () => {
-    console.log(this.props.player);
-
     const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
@@ -48,27 +46,29 @@ class MoveLocation extends React.Component {
     this.props.login(data);
 
     const params = this.props.match.params.location;
+    console.log("params", params);
+
     const playerInitial = JSON.parse(JSON.stringify(this.props.player));
 
-    this.setState({
+    await this.setState({
       locationParams: params,
       player: playerInitial
     });
   };
 
-  moveNext = () => {
+  moveNext = async () => {
     let data = this.state.locationImage;
     let number = Math.floor(Math.random() * 5);
     if (number === data) {
       number = Math.floor(Math.random() * 5);
     } else {
-      this.setState({
+      await this.setState({
         locationImage: number
       });
     }
     const random = Math.floor(Math.random() * 4);
     if (random === 2) {
-      this.setState({
+      await this.setState({
         fight: true
       });
     } else if (random === 0) {

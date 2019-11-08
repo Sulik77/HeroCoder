@@ -4,7 +4,7 @@ import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 
 class HomePage extends React.Component {
   componentDidMount = async () => {
@@ -26,10 +26,7 @@ class HomePage extends React.Component {
       body: JSON.stringify(session)
     });
     const data = await resp.json();
-    console.log(data);
     this.props.login(data);
-    console.log("USER ===>>>>", this.props.user);
-    console.log(this.props.user.stats.damage);
   };
 
   logout = async () => {
@@ -41,11 +38,10 @@ class HomePage extends React.Component {
       }
     });
     const data = await resp.json();
-    if(data){
-      this.props.history.push("/")
+    if (data) {
+      this.props.history.push("/");
     }
-  }
-  
+  };
 
   render() {
     return (
@@ -66,6 +62,9 @@ class HomePage extends React.Component {
                   <Link className="profile-link" to="/fight">
                     <span>Fight</span>
                   </Link>
+                </div>
+                <div className="profile-link">
+                  <span onClick={this.logout}>Logout</span>
                 </div>
               </Nav>
             </Navbar.Collapse>
@@ -167,7 +166,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePage);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(HomePage)
+);
