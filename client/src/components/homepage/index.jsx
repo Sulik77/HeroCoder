@@ -59,16 +59,16 @@ class HomePage extends React.Component {
               <Nav>
                 <div className="registration">
                   <Link className="profile-link" to="/skill">
-                    <span>Skills</span>
+                    <span>Навыки</span>
                   </Link>
                 </div>
                 <div>
                   <Link className="profile-link" to="/fight">
-                    <span>Fight</span>
+                    <span>Битва</span>
                   </Link>
                 </div>
                 <div className="profile-link">
-                  <span onClick={this.logout}>Logout</span>
+                  <span onClick={this.logout}>Выйти</span>
                 </div>
               </Nav>
             </Navbar.Collapse>
