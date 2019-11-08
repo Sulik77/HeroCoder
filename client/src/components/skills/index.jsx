@@ -14,7 +14,7 @@ class Skills extends React.Component {
   }
 
   componentDidMount = async () => {
-    const login = await fetch("/api/check-sesion", {
+    const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -22,8 +22,6 @@ class Skills extends React.Component {
       }
     });
     const session = await login.json();
-    console.log("session",session);
-    
     const resp = await fetch("/api/update-store", {
       method: "POST",
       headers: {
@@ -50,9 +48,6 @@ class Skills extends React.Component {
 
 
   render() {
-    console.log('skills render');
-
-
     return (
 
       <div className="body">

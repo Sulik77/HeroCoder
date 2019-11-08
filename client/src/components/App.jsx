@@ -10,6 +10,7 @@ import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import HomePage from "./homepage";
 
 
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -20,24 +21,23 @@ export default class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    const resp = await fetch("/api/check-sesion", {
+    const resp = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
     });
-      const data = await resp.json();
-      if (data) {
-        this.setState({ checkSession: true });
-      }
+    const data = await resp.json();
+    if (data) {
+      this.setState({ checkSession: true });
     }
+  }
 
   render() {
     return (
       <Router>
         <div className="full-screen">
-          <Route exact path="/" component={Faq} />
 
           {this.state.checkSession ?
             <>
@@ -48,21 +48,15 @@ export default class App extends React.Component {
               <Route exact path="/skill/test" component={Test} />
               <Route exact path="/test" component={MoveLocation} />
               <Route exact path="/homepage" component={HomePage} />
+              <Route
+                path="/figth/pve/locations/:location"
+                component={MoveLocation}
+              />
             </>
-            : <>
-              <Route exact path="/skill" component={Faq} />
-              <Route exact path="/fight" component={Faq} />
-              <Route exact path="/figth/pve/locations" component={Faq} />
-              <Route exact path="/figth/pve/fight" component={Faq} />
-              <Route exact path="/skill/test" component={Faq} />
-              <Route exact path="/test" component={Faq} />
-              <Route exact path="/homepage" component={Faq} />
-            </>}
-          <Route
-            path="/figth/pve/locations/:location"
-            component={MoveLocation}
-          />
+            :
+            <></>}
 
+          <Route exact path="/" component={Faq} />
         </div>
       </Router>
     );

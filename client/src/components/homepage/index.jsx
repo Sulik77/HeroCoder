@@ -4,12 +4,13 @@ import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
 
 class HomePage extends React.Component {
 
 
   componentDidMount = async () => {
-    const login = await fetch("/api/check-sesion", {
+    const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -17,7 +18,6 @@ class HomePage extends React.Component {
       }
     });
     const session = await login.json();
-    console.log("session", session);
 
     const resp = await fetch("/api/update-store", {
       method: "POST",
@@ -27,16 +27,30 @@ class HomePage extends React.Component {
       },
       body: JSON.stringify(session)
     });
-
     const data = await resp.json();
+    console.log(data);
     this.props.login(data);
   }
+
+  logout = async () => {
+    const resp = await fetch("/api/logout", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await resp.json();
+    if(data){
+      this.props.history.push("/")
+    }
+  }
+  
 
   render() {
     return (
       <div className="fonHome">
         <Navbar className="bar" expand="lg" fixed="top" variant="dark">
-          <Navbar.Brand href="/homepage">HeroCoder</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto"></Nav>
@@ -47,6 +61,9 @@ class HomePage extends React.Component {
               <div>
                 <Link to="/fight">Fight</Link>
               </div>
+              <button onClick={this.logout}>
+                Logout
+              </button>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -61,7 +78,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(HomePage);
+)(HomePage));

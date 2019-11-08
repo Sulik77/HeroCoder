@@ -8,11 +8,13 @@ class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: []
+      questions: [],
+      answers:[],
+      trueAnswers:[]
     };
   }
   componentDidMount = async () => {
-    const resp = await fetch("/api/check-sesion", {
+    const resp = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -20,7 +22,6 @@ class Test extends React.Component {
       }
     });
     const data = await resp.json();
-    console.log("Test", data);
     if (data.status === 1) {
       this.setState({ error: data.error });
     } else {
@@ -36,12 +37,25 @@ class Test extends React.Component {
     });
     const dataTest = await respGetTest.json();
     await this.setState({ questions: dataTest });
+    for ()
   };
+
+  handleInput = async e => {
+    const answer = this.state.answers;
+    answer.push(e.target.name)
+    await this.setState({ answers: answer });
+  };
+
+  onSubmit = async e => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
 
   render() {
     return (
       <div className="tests-form-wrap">
-        <form className="tests-form">
+        <form onSubmit={this.onSubmit} className="tests-form">
           {this.state.questions &&
             this.state.questions.map((element, index) => {
               return (
@@ -49,7 +63,7 @@ class Test extends React.Component {
                   <div>
                     <p className="test-question">{element.question}</p>
                     {element.code ? (
-                      <div className="test-code">
+                      <div name="question" className="test-code">
                         <code>{element.code}</code>
                       </div>
                     ) : (
@@ -59,7 +73,7 @@ class Test extends React.Component {
                       {element.variants.map((variant, index) => {
                         return (
                           <div className="test-answerd">
-                            <input key={10 * index} type="radio"></input>
+                            <input key={10 * index} name={variant} onChange={this.handleInput} type="radio"></input>
                             <a>{variant}</a>
                           </div>
                         );
@@ -71,7 +85,7 @@ class Test extends React.Component {
               );
             })}
           <div className="go">
-            <Button variant="outline-primary" size="lg" block>
+            <Button variant="outline-primary" type="submit" size="lg" block>
               GO
             </Button>
           </div>

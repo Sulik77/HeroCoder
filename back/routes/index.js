@@ -17,7 +17,7 @@ router.get("/api/skills", async (req, res) => {
   res.json(skills);
 });
 
-router.route("/login").post(async (req, res) => {
+router.route("/api/login").post(async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const user = await User.findOne({ email });
@@ -38,7 +38,7 @@ router.route("/login").post(async (req, res) => {
   }
 });
 
-router.route("/signup").post(async (req, res) => {
+router.route("/api/signup").post(async (req, res) => {
   let newUser = await User.findOne({ email: req.body.email });
   if (!newUser) {
     const pass = await bcrypt.hash(req.body.password, 12);
@@ -79,7 +79,7 @@ router.route("/signup").post(async (req, res) => {
   }
 });
 
-router.get("/api/check-sesion", async (req, res) => {
+router.get("/api/check-session", async (req, res) => {
   const user = req.session.user;
   const error = false;
   if (user === undefined){
@@ -102,10 +102,15 @@ router.put("/api/endFight", async (req, res) => {
 
 
 router.post("/api/update-store", async (req, res) => {
-  console.log(req.body);
   const user =  await User.findOne({ username: req.body.username });; 
-  console.log(user);
     res.json(user);
 });
+
+router.get("/api/logout", async (req, res) => {
+  req.session.destroy();
+    res.json(true);
+});
+
+
 
 module.exports = router;
