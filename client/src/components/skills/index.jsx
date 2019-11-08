@@ -44,7 +44,6 @@ class Skills extends React.Component {
     });
     const dataSkills = await respGetSkills.json();
     await this.setState({ skills: dataSkills });
-    console.log(this.state.skills);
   };
 
   render() {
@@ -58,12 +57,12 @@ class Skills extends React.Component {
             <Nav>
               <div className="registration">
                 <Link className="profile-link" to="/homepage">
-                  <span>HomePage</span>
+                  <span>Главная</span>
                 </Link>
               </div>
               <div>
                 <Link className="profile-link" to="/fight">
-                  <span>Fight</span>
+                  <span>Битва</span>
                 </Link>
               </div>
             </Nav>
