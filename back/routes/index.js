@@ -92,7 +92,6 @@ router.get("/api/check-session", async (req, res) => {
 router.put("/api/endFight", async (req, res) => {
   const userInitial = await User.findOne({ username: req.body.playerName });
   userInitial.player.gold += req.body.gold;
-
   userInitial.markModified("player.gold");
   await userInitial.save();
   res.json(userInitial);
@@ -111,12 +110,8 @@ router.get("/api/logout", async (req, res) => {
 
 router.post("/api/skill-learn", async (req, res) => {
   const user = await User.findOne({ _id: req.session.user._id });
-  console.log("user",user);
-  console.log("body",req.body);
   let skills = user.player.percs;
   const learnedSkill = await Skills.findOne({ title: req.body.skill });
-  console.log(learnedSkill);
-
   skills.push(learnedSkill);
   const playerUpdate = user.player;
   playerUpdate.percs = skills;
@@ -126,15 +121,11 @@ router.post("/api/skill-learn", async (req, res) => {
 
 router.post("/api/gold-update", async (req, res) => {
   const user = await User.findOne({ _id: req.session.user._id });
-  console.log("first",user.player);
-  
-  let gold = user.player.gold;
+  let goldUpdate = req.body.goldUpdate;
   const playerUpdate = user.player;
-  playerUpdate.gold = gold;
-  await User.findByIdAndUpdate({ _id: req.session.user._id }, { player: playerUpdate })
-  const user2 = await User.findOne({ _id: req.session.user._id });
-  console.log("second",user2.player);
-  res.json(user);
+  playerUpdate.gold = goldUpdate;
+  const userUpdate = await User.findByIdAndUpdate({ _id: req.session.user._id }, { player: playerUpdate })
+  res.json(userUpdate);
 });
 
 
