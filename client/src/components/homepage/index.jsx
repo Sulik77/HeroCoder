@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 import { withRouter } from 'react-router'
 
 class HomePage extends React.Component {
-
-
   componentDidMount = async () => {
     const login = await fetch("/api/check-session", {
       method: "GET",
@@ -30,7 +28,9 @@ class HomePage extends React.Component {
     const data = await resp.json();
     console.log(data);
     this.props.login(data);
-  }
+    console.log("USER ===>>>>", this.props.user);
+    console.log(this.props.user.stats.damage);
+  };
 
   logout = async () => {
     const resp = await fetch("/api/logout", {
@@ -49,18 +49,90 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="fonHome">
-        <Navbar className="bar" expand="lg" fixed="top" variant="dark">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto"></Nav>
-            <Nav>
-              <div className="registration">
-                <Link to="/skill">Skills</Link>
+      <>
+        <div className="fonHome">
+          <Navbar className="bar" expand="lg" fixed="top" variant="dark">
+            <Navbar.Brand>HeroCoder</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto"></Nav>
+              <Nav>
+                <div className="registration">
+                  <Link className="profile-link" to="/skill">
+                    <span>Skills</span>
+                  </Link>
+                </div>
+                <div>
+                  <Link className="profile-link" to="/fight">
+                    <span>Fight</span>
+                  </Link>
+                </div>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+          <div className="profile-wrap">
+            <div className="profile-container">
+              <div className="profile-container-avatar">
+                <img src={this.props.user.avatar} alt="avatar" />
               </div>
-              <div>
-                <Link to="/fight">Fight</Link>
+              <div className="profile-container-stats">
+                <p className="profile-desc">Характеристики</p>
+                <div className="profile-wrap-stats">
+                  <div className="profile-container-stats__stats">
+                    <span>
+                      <img
+                        src="https://i.ya-webdesign.com/images/pixel-sword-png-7.png"
+                        alt=""
+                      />
+                    </span>
+                    <span>
+                      {this.props.user && this.props.user.stats.damage}
+                    </span>
+                  </div>
+                  <div className="profile-container-stats__stats">
+                    <span>
+                      <img
+                        src="https://www.onlygfx.com/wp-content/uploads/2019/02/6-pixel-heart-4.png"
+                        alt=""
+                      />
+                    </span>
+                    <span>
+                      {this.props.user && this.props.user.stats.health}
+                    </span>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div className="profile-container">
+              <div className="skill_title"> Навыки </div>
+              <div className="profile-wrap-skills">
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[0]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[1]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[2]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[3]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[4]}
+                  </div>
+                </div>
+              </div>
+<<<<<<< HEAD
               <button onClick={this.logout}>
                 Logout
               </button>
@@ -68,8 +140,32 @@ class HomePage extends React.Component {
           </Navbar.Collapse>
         </Navbar>
       </div>
+=======
+              <div className="profile-wrap-stats profile-wrap-stats--gold">
+                <div className="profile-wrap-stats--gold_wrap">
+                  <img
+                    className="profile-gold"
+                    src="https://s1.piq.land/2013/05/12/bd610Y3bdPcokJRR68GA3kJT_400x400.png"
+                    alt=""
+                  />
+                  <span className="profile-gold--value">
+                    {this.props.user.gold}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+>>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
     );
   }
+}
+
+function mapStateToProps(store) {
+  return {
+    user: store.user.player
+  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -78,7 +174,12 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+<<<<<<< HEAD
 export default withRouter(connect(
   null,
+=======
+export default connect(
+  mapStateToProps,
+>>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
   mapDispatchToProps
 )(HomePage));

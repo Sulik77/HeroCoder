@@ -9,15 +9,12 @@ import MoveLocation from "./FightComponents/MoveLocation/MoveLocation";
 import PvEBoard from "./FightComponents/PvEContant/PvEBoard";
 import HomePage from "./homepage";
 
-
-
 export default class App extends React.Component {
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       checkSession: false
-    }
+    };
   }
 
   componentDidMount = async () => {
@@ -32,7 +29,7 @@ export default class App extends React.Component {
     if (data) {
       this.setState({ checkSession: true });
     }
-  }
+  };
 
   render() {
     return (
@@ -43,10 +40,13 @@ export default class App extends React.Component {
             <>
               <Route exact path="/skill" component={Skills} />
               <Route exact path="/fight" component={FightApp} />
-              <Route exact path="/figth/pve/locations" component={FightLocation} />
+              <Route
+                exact
+                path="/figth/pve/locations"
+                component={FightLocation}
+              />
               <Route exact path="/figth/pve/fight" component={PvEBoard} />
               <Route exact path="/skill/test" component={Test} />
-              <Route exact path="/test" component={MoveLocation} />
               <Route exact path="/homepage" component={HomePage} />
               <Route
                 path="/figth/pve/locations/:location"
@@ -62,4 +62,3 @@ export default class App extends React.Component {
     );
   }
 }
-

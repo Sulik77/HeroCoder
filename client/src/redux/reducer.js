@@ -1,6 +1,8 @@
 import { START_FIGHT, LOGIN, END_FIGHT } from "./types";
 
-const initialState = {};
+const initialState = {
+  user: { player: "" }
+};
 
 export default function(state = initialState, action) {
   switch (action.type) {

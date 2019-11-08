@@ -37,7 +37,6 @@ class Test extends React.Component {
     });
     const dataTest = await respGetTest.json();
     await this.setState({ questions: dataTest });
-    for ()
   };
 
   handleInput = async e => {

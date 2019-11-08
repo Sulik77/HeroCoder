@@ -50,7 +50,7 @@ router.route("/api/signup").post(async (req, res) => {
         type: "player",
         name: req.body.username,
         avatar:
-          "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
+          "https://img.gifmagazine.net/gifmagazine/images/1301133/original.gif",
         percs: [],
         stats: {
           lvl: 1,
@@ -82,10 +82,9 @@ router.route("/api/signup").post(async (req, res) => {
 router.get("/api/check-session", async (req, res) => {
   const user = req.session.user;
   const error = false;
-  if (user === undefined){
-    res.json(error)
-  }
-  else {  
+  if (user === undefined) {
+    res.json(error);
+  } else {
     res.json(user);
   }
 });
@@ -99,7 +98,6 @@ router.put("/api/endFight", async (req, res) => {
   res.json(userInitial);
   console.log(userInitial);
 });
-
 
 router.post("/api/update-store", async (req, res) => {
   const user =  await User.findOne({ username: req.body.username });; 
