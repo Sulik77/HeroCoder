@@ -11,8 +11,11 @@ class Skill extends React.Component {
     }
   }
 
-  onClick = (name) => {    
-    this.props.history.push(`/skill/test/${name}`)
+  onClick = () => { 
+    console.log(this.props);
+    console.log(this.props.data.params.gold);
+    
+    this.props.history.push(`/skill/test/${this.props.name}`)
   }
 
   render() {
@@ -27,7 +30,7 @@ class Skill extends React.Component {
 
     return (
       <div className="skill-wrap">
-        <div onClick={() => this.onClick(this.props.name)} className="skill" title={desc}>
+        <div onClick={() => this.onClick()} className="skill" title={desc}>
           <img src={data.img} alt="" />
         </div>
       </div>
