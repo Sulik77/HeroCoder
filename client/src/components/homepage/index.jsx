@@ -28,7 +28,6 @@ class HomePage extends React.Component {
     const data = await resp.json();
     this.props.login(data);
     console.log();
-    
   };
 
   logout = async () => {
@@ -133,6 +132,36 @@ class HomePage extends React.Component {
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
                     {this.props.user && this.props.user.percs[4]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[5]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[6]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[7]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[8]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[9]}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[10]}
                   </div>
                 </div>
               </div>
