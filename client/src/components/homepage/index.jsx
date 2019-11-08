@@ -27,7 +27,7 @@ class HomePage extends React.Component {
     });
     const data = await resp.json();
     this.props.login(data);
-    console.log();
+    console.log(data);
     
   };
 

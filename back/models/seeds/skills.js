@@ -14,7 +14,7 @@ const skills = [
     params: {
       damage: 100,
       chance: 0.2,
-      gold: 1
+      gold: 3
     }
   },
   {
@@ -26,7 +26,7 @@ const skills = [
     params: {
       damage: 120,
       chance: 0.15,
-      gold: 1
+      gold: 4
     }
   },
   {
@@ -50,7 +50,7 @@ const skills = [
     params: {
       damage: 300,
       chance: 0.1,
-      gold: 10
+      gold: 30
     }
   },
   {
@@ -62,7 +62,7 @@ const skills = [
     params: {
       health: 70,
       chance: 0.2,
-      gold: 10
+      gold: 35
     }
   },
   {
@@ -74,7 +74,7 @@ const skills = [
     params: {
       damage: 40,
       chance: 0.3,
-      gold: 10
+      gold: 45
     }
   },
   {
@@ -86,7 +86,7 @@ const skills = [
     params: {
       damage: 250,
       chance: 0.4,
-      gold: 10
+      gold: 100
     }
   },
   {
@@ -97,7 +97,7 @@ const skills = [
     params: {
       damage: 300,
       chance: 0.2,
-      gold: 10
+      gold: 170
     }
   },
   {
@@ -109,7 +109,7 @@ const skills = [
     params: {
       damage: 90,
       chance: 0.6,
-      gold: 1
+      gold: 17
     }
   },
   {
@@ -121,7 +121,7 @@ const skills = [
     params: {
       damage: 60 - 100,
       chance: 0.2,
-      gold: 1
+      gold: 10
     }
   },
   {
@@ -133,7 +133,7 @@ const skills = [
     params: {
       damage: 140,
       chance: 0.3,
-      gold: 10
+      gold: 30
     }
   }
 ];
