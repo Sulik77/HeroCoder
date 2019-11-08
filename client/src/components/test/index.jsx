@@ -66,12 +66,7 @@ class Test extends React.Component {
     console.log(skill);
 
     if (test2 === test1) {
-<<<<<<< HEAD
-      await this.setState({ done: true });
-      //  const skill = this.props.match.params.id;
-=======
-      await this.setState({ done: "true" })
->>>>>>> developments
+      await this.setState({ done: "true" });
       let resp = await fetch("/api/skill-learn", {
         method: "POST",
         headers: {
@@ -81,13 +76,8 @@ class Test extends React.Component {
         body: JSON.stringify({ skill })
       });
       const data = await resp.json();
-<<<<<<< HEAD
-      console.log(data.player.percs);
-=======
->>>>>>> developments
-    }
-    else {
-      this.setState({ done: "false" })
+    } else {
+      this.setState({ done: "false" });
     }
   };
 
@@ -124,31 +114,33 @@ class Test extends React.Component {
   render() {
     return (
       <div className="tests-form-wrap">
-        <div className={this.state.done !== ""? "test-form--bg-black" : ""}>
+        <div className={this.state.done !== "" ? "test-form--bg-black" : ""}>
           {" "}
         </div>
 
-        {this.state.done === "true" ?
+        {this.state.done === "true" ? (
           <div className="tests-form-modals tests-form-modals--true">
             <div className="form-modals-desc">
               Мои поздравления, у вас все получилось <br />
               Вы овладели новым навыком, но вам все равно есть чему учиться
-         </div>
+            </div>
             <Link to="/homepage">
               <div className="form-modals-btn">Вернуться на главную</div>
             </Link>
           </div>
-          : this.state.done === "false" ?
-            <div className="tests-form-modals tests-form-modals--false">
-              <div className="form-modals-desc">
-                Соболезную, Сэр, но вы не справились с тестом. <br />
-                Советую вам подучить материал и попробовать вновь
-        </div>
-              <Link to="/homepage">
-                <div className="form-modals-btn">Вернуться на главную</div>
-              </Link>
-            </div> : 
-            <></>}
+        ) : this.state.done === "false" ? (
+          <div className="tests-form-modals tests-form-modals--false">
+            <div className="form-modals-desc">
+              Соболезную, Сэр, но вы не справились с тестом. <br />
+              Советую вам подучить материал и попробовать вновь
+            </div>
+            <Link to="/homepage">
+              <div className="form-modals-btn">Вернуться на главную</div>
+            </Link>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <form onSubmit={this.onSubmit} className="tests-form">
           {this.state.questions &&
@@ -162,8 +154,8 @@ class Test extends React.Component {
                         <code>{element.code}</code>
                       </div>
                     ) : (
-                        ""
-                      )}
+                      ""
+                    )}
                     <div className="test-answerd-wrap">
                       {element.variants.map((variant, index) => {
                         return (
