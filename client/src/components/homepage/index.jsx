@@ -4,7 +4,7 @@ import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 
 class HomePage extends React.Component {
   componentDidMount = async () => {
@@ -41,11 +41,10 @@ class HomePage extends React.Component {
       }
     });
     const data = await resp.json();
-    if(data){
-      this.props.history.push("/")
+    if (data) {
+      this.props.history.push("/");
     }
-  }
-  
+  };
 
   render() {
     return (
@@ -67,13 +66,19 @@ class HomePage extends React.Component {
                     <span>Fight</span>
                   </Link>
                 </div>
+                <div className="profile-link">
+                  <span onClick={this.logout}>Logout</span>
+                </div>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
           <div className="profile-wrap">
             <div className="profile-container">
               <div className="profile-container-avatar">
-                <img src={this.props.user.avatar} alt="avatar" />
+                <img
+                  src={this.props.user && this.props.user.avatar}
+                  alt="avatar"
+                />
               </div>
               <div className="profile-container-stats">
                 <p className="profile-desc">Характеристики</p>
@@ -132,15 +137,6 @@ class HomePage extends React.Component {
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-              <button onClick={this.logout}>
-                Logout
-              </button>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
-=======
               <div className="profile-wrap-stats profile-wrap-stats--gold">
                 <div className="profile-wrap-stats--gold_wrap">
                   <img
@@ -149,7 +145,7 @@ class HomePage extends React.Component {
                     alt=""
                   />
                   <span className="profile-gold--value">
-                    {this.props.user.gold}
+                    {this.props.user && this.props.user.gold}
                   </span>
                 </div>
               </div>
@@ -157,7 +153,6 @@ class HomePage extends React.Component {
           </div>
         </div>
       </>
->>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
     );
   }
 }
@@ -174,12 +169,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-<<<<<<< HEAD
-export default withRouter(connect(
-  null,
-=======
-export default connect(
-  mapStateToProps,
->>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
-  mapDispatchToProps
-)(HomePage));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(HomePage)
+);
