@@ -47,9 +47,8 @@
   padding: 20px;
   left: 30px;
   bottom: 30px;
-  border: 8px solid rgb(102, 34, 10);
-  background-color: rgba(247, 104, 9, 0.7);
-  border-radius: 20px;
+  background-color: rgba(236, 111, 8, 0.6);
+  border: 10px outset rgb(68, 66, 66);
 }
 
 .move-logs--desc {
@@ -70,9 +69,8 @@
   padding: 20px;
   right: 30px;
   bottom: 30px;
-  border: 8px solid rgb(102, 34, 10);
-  background-color: rgba(247, 104, 9, 0.7);
-  border-radius: 20px;
+  background-color: rgba(236, 111, 8, 0.6);
+  border: 10px outset rgb(68, 66, 66);
   font-size: 20px;
 }
 
