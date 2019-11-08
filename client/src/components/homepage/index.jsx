@@ -27,8 +27,10 @@ class HomePage extends React.Component {
     });
     const data = await resp.json();
     this.props.login(data);
-    console.log(data);
-    
+    console.log("data", data);
+
+    console.log("this.state", this.state);
+    console.log("this.props.user && this.props.user.percs[1].img");
   };
 
   logout = async () => {
@@ -112,27 +114,134 @@ class HomePage extends React.Component {
               <div className="profile-wrap-skills">
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[0]}
+                    {this.props.user && this.props.user.percs[0] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[0].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[1]}
+                    {this.props.user && this.props.user.percs[1] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[1].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[2]}
+                    {this.props.user && this.props.user.percs[2] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[2].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[3]}
+                    {this.props.user && this.props.user.percs[3] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[3].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className="profile-skill__wrap">
                   <div className="profile-skill">
-                    {this.props.user && this.props.user.percs[4]}
+                    {this.props.user && this.props.user.percs[4] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[4].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[5] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[5].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[6] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[6].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[7] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[7].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[8] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[8].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[9] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[9].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className="profile-skill__wrap">
+                  <div className="profile-skill">
+                    {this.props.user && this.props.user.percs[10] ? (
+                      <img
+                        src={this.props.user && this.props.user.percs[10].img}
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

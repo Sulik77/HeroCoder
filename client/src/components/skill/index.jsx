@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 import "./Skill.css";
 
 class Skill extends React.Component {
@@ -8,16 +8,28 @@ class Skill extends React.Component {
     this.state = {
       test: "",
       learn: false
-    }
+    };
   }
 
   onClick = async () => {
-      const login = await fetch("/api/check-session", {
-        method: "GET",
+    const login = await fetch("/api/check-session", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const session = await login.json();
+    let gold = session.player.gold;
+    if (gold >= this.props.data.params.gold) {
+      gold = gold - this.props.data.params.gold;
+      let resp = await fetch("/api/gold-update", {
+        method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify({ gold })
       });
       const session = await login.json();
       const resp = await fetch("/api/update-store", {
@@ -44,25 +56,40 @@ class Skill extends React.Component {
         this.props.history.push(`/skill/test/${this.props.name}`)
       }
     }
+  };
 
-    render() {
-      const data = this.props.data;
-      const desc =
-        data.title +
-        "\n" +
-        data.opisanie +
-        "\n" +
-        "увеличение урона: +" +
-        data.params.damage;
+  render() {
+    const data = this.props.data;
+    console.log(data);
 
-      return (
-        <div className="skill-wrap">
-          <div onClick={() => this.onClick()} className="skill" title={desc}>
-            <img src={data.img} alt="" />
-          </div>
+    const desc =
+      data.title +
+      "\n " +
+      "\n" +
+      data.opisanie +
+      "\n" +
+      "увеличение урона: +" +
+      data.params.damage;
+
+    return (
+      <div className="skill-wrap">
+        <div
+          onClick={() => this.onClick()}
+          className="skill"
+          title={
+            desc +
+            "\n" +
+            "\n" +
+            "Стоимость изучения: " +
+            data.params.gold +
+            " золота"
+          }
+        >
+          <img src={data.img} alt="" />
         </div>
-      );
-    }
+      </div>
+    );
   }
+}
 
-  export default withRouter(Skill);
+export default withRouter(Skill);
