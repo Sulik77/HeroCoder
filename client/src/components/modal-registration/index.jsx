@@ -35,14 +35,14 @@ class Registration extends Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-     await this.setState({
+      await this.setState({
         username: "",
         email: "",
         password: "",
         error: data.error
       });
     } else {
-     await this.setState({ isOpen: false });
+      this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }
   };
