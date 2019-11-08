@@ -43,7 +43,7 @@ class Skills extends React.Component {
       }
     });
     const dataSkills = await respGetSkills.json();
-    this.setState({ skills: dataSkills })
+   await this.setState({ skills: dataSkills })
   }
 
 
@@ -61,7 +61,7 @@ class Skills extends React.Component {
         </div>
         <div className="container-perks">
           {this.state.skills.map((element, index) => (
-            <Skill data={element} key={index} />
+            <Skill name={element.title} data={element} key={index} />
           ))}
 
         </div>

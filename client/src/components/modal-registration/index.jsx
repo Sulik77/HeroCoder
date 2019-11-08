@@ -18,13 +18,13 @@ class Registration extends Component {
     }
   }
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange = async e => {
+    await this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = async e => {
     e.preventDefault();
-    this.setState({ error: "" })
+    await this.setState({ error: "" })
     let resp = await fetch("/api/signup", {
       method: "POST",
       headers: {
@@ -35,14 +35,14 @@ class Registration extends Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({
+     await this.setState({
         username: "",
         email: "",
         password: "",
         error: data.error
       });
     } else {
-      this.setState({ isOpen: false });
+     await this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }
   };

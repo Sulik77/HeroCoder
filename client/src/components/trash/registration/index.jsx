@@ -11,8 +11,8 @@ export default class Registration extends Component {
       error: null
     };
   }
-  handleImput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleImput = async e => {
+    await this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = async e => {
@@ -27,7 +27,7 @@ export default class Registration extends Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({ error: data.error });
+      await this.setState({ error: data.error });
     } else {
       this.props.history.push("/");
     }

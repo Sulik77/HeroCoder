@@ -49,25 +49,25 @@ class MoveLocation extends React.Component {
     const params = this.props.match.params.location;
     const playerInitial = JSON.parse(JSON.stringify(this.props.player));
 
-    this.setState({
+    await this.setState({
       locationParams: params,
       player: playerInitial
     });
   };
 
-  moveNext = () => {
+  moveNext = async () => {
     let data = this.state.locationImage;
     let number = Math.floor(Math.random() * 5);
     if (number === data) {
       number = Math.floor(Math.random() * 5);
     } else {
-      this.setState({
+      await this.setState({
         locationImage: number
       });
     }
     const random = Math.floor(Math.random() * 3);
     if (random === 2) {
-      this.setState({
+      await this.setState({
         fight: true
       });
     }

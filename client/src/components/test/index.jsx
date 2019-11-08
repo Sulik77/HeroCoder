@@ -3,14 +3,17 @@ import "./tests.css";
 import Button from 'react-bootstrap/Button';
 import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
+import { withRouter } from 'react-router'
+
 
 class Test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       questions: [],
-      answers:[],
-      trueAnswers:[]
+      answers: [],
+      trueAnswers: [],
+      done: null
     };
   }
   componentDidMount = async () => {
@@ -23,11 +26,11 @@ class Test extends React.Component {
     });
     const data = await resp.json();
     if (data.status === 1) {
-      this.setState({ error: data.error });
+     await this.setState({ error: data.error });
     } else {
       this.props.login(data);
     }
-
+    
     const respGetTest = await fetch("/api/test", {
       method: "GET",
       headers: {
@@ -37,6 +40,13 @@ class Test extends React.Component {
     });
     const dataTest = await respGetTest.json();
     await this.setState({ questions: dataTest });
+    let trueVariant = [];
+    dataTest.map((question) => {
+      question.trueVariants.map((variants) => {
+        trueVariant.push(variants);
+      })
+    })
+    await this.setState({ trueAnswers: trueVariant })
   };
 
   handleInput = async e => {
@@ -47,7 +57,30 @@ class Test extends React.Component {
 
   onSubmit = async e => {
     e.preventDefault();
-    console.log(this.state);
+    let answersUser = this.state.answers.sort();
+    let trueAnswers = this.state.trueAnswers.sort();
+    const test2 = JSON.stringify(answersUser);
+    const test1 = JSON.stringify(trueAnswers);
+    if (test2 === test1) {
+     await this.setState({ done: true })
+     const skill = this.props.match.params.id;
+     const resp = await fetch("/api/check-session", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await resp.json();
+    if (data.status === 1) {
+     await this.setState({ error: data.error });
+    } else {
+      this.props.login(data);
+    }
+    }
+    else {
+     await this.setState({ done: false })
+    }
   }
 
 
@@ -100,7 +133,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(Test);
+)(Test));

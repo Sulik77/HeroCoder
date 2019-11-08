@@ -41,11 +41,11 @@ class HomePage extends React.Component {
       }
     });
     const data = await resp.json();
-    if(data){
+    if (data) {
       this.props.history.push("/")
     }
   }
-  
+
 
   render() {
     return (
@@ -61,6 +61,9 @@ class HomePage extends React.Component {
                   <Link className="profile-link" to="/skill">
                     <span>Skills</span>
                   </Link>
+                  <button onClick={this.logout}>
+                    Logout
+              </button>
                 </div>
                 <div>
                   <Link className="profile-link" to="/fight">
@@ -132,15 +135,6 @@ class HomePage extends React.Component {
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-              <button onClick={this.logout}>
-                Logout
-              </button>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
-=======
               <div className="profile-wrap-stats profile-wrap-stats--gold">
                 <div className="profile-wrap-stats--gold_wrap">
                   <img
@@ -157,7 +151,6 @@ class HomePage extends React.Component {
           </div>
         </div>
       </>
->>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
     );
   }
 }
@@ -174,12 +167,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-<<<<<<< HEAD
 export default withRouter(connect(
-  null,
-=======
-export default connect(
   mapStateToProps,
->>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
   mapDispatchToProps
 )(HomePage));

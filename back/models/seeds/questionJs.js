@@ -139,11 +139,6 @@ const questionsJS = [
         trueVariants: ["Да."]
     },
     {
-        question: "Что получится, если сложить true + false?" ,
-        variants: [`"truefalse"`,"instanceof","constructor","parent","new","Все имеют специальное использование."],
-        trueVariants: ["parent"]
-    },
-    {
         question: `Что выведет этот код?`,
         code:`
                             f.call(f);
