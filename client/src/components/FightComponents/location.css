@@ -22,7 +22,7 @@
 
 .location-link-layaout {
   height: 70vh;
-  border: 10px solid rgb(80, 74, 71);
+  border: 10px outset rgb(68, 66, 66);
   box-sizing: border-box;
 }
 

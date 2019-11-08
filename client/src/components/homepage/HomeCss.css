@@ -136,14 +136,16 @@
   padding: 10px 25px;
   color: #fff;
   font-size: 20px;
-  border: 5px solid rgb(241, 88, 32);
-  background-color: rgb(143, 45, 9);
+  background-color: rgb(236, 111, 8);
+  border: 5px outset rgb(68, 66, 66);
+  box-sizing: border-box;
   border-radius: 20px;
   cursor: pointer;
   margin: 0 20px;
+  font-weight: 800;
 }
 
 .profile-link:hover span {
-  border: 5px solid rgb(161, 52, 13);
+  border: 5px outset rgb(161, 52, 13);
   background-color: rgb(228, 69, 11);
 }

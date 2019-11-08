@@ -1,10 +1,10 @@
 const mobAvatarList = {
   skelets: [
-    "https://img2.freepng.ru/20180410/ugw/kisspng-goblin-runescape-re-monster-wiki-game-skeleton-5acc4121375602.8672641315233354572267.jpg",
+    "https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_image/d5525d58236/b969b4451f95c5bb1f32a/timeline_1553626260_00008.jpg",
     "https://art.pixilart.com/bc49837a2898ba4.png",
     "http://pixeljoint.com/files/icons/full/hixelton.png",
     "https://i.pinimg.com/originals/bc/b4/ff/bcb4ff04f09f9f97a9609e76ab1eaae3.png",
-    "https://im0-tub-ru.yandex.net/i?id=8ba4bebeaf53808b35da3d971b4c54da&n=13"
+    "https://ih0.redbubble.net/image.127117209.8601/flat,1000x1000,075,f.u1.jpg"
   ],
   zombis: [
     "https://mir-s3-cdn-cf.behance.net/projects/max_808/21188277.5460ade7273fe.png",

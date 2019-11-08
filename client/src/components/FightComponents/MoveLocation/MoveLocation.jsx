@@ -15,7 +15,8 @@ class MoveLocation extends React.Component {
       player: null,
       locationImage: 0,
       fight: false,
-      locationParams: ""
+      locationParams: "",
+      logsMove: ""
     };
   }
 
@@ -28,7 +29,6 @@ class MoveLocation extends React.Component {
       }
     });
     const session = await login.json();
-    console.log("session", session);
 
     const resp = await fetch("/api/update-store", {
       method: "POST",
@@ -41,6 +41,7 @@ class MoveLocation extends React.Component {
 
     const data = await resp.json();
     console.log(data);
+    
 
     this.props.login(data);
 
@@ -65,10 +66,24 @@ class MoveLocation extends React.Component {
         locationImage: number
       });
     }
-    const random = Math.floor(Math.random() * 3);
+    const random = Math.floor(Math.random() * 4);
     if (random === 2) {
       await this.setState({
         fight: true
+      });
+    } else if (random === 0) {
+      const trapPlayer = this.state.player;
+      const damageTrap = Math.floor(
+        (trapPlayer.stats.health * Math.floor(Math.random() * 10)) / 100
+      );
+      trapPlayer.stats.health -= damageTrap;
+
+      this.setState({
+        logsMove: `я попал в ловушку и получил ${damageTrap} единиц урона`
+      });
+    } else {
+      this.setState({
+        logsMove: "Ничего интересного, надо идти дальше"
       });
     }
   };
@@ -91,6 +106,24 @@ class MoveLocation extends React.Component {
         className={`location-going-layaout--${this.state.locationParams}-${this.state.locationImage}`}
       >
         <div className="move-wrap">
+          <div className="move-logs">
+            <span className="move-logs--desc">События:</span>
+            <div className="move-logs--value"> {this.state.logsMove} </div>
+          </div>
+          <div className="move-stats">
+            <div>
+              <span className="move-stats--desc">Здоровье:</span>{" "}
+              <span className="move-stats--value">
+                {this.state.player && this.state.player.stats.health}
+              </span>
+            </div>
+            <div>
+              <span className="move-stats--desc">Урон:</span>{" "}
+              <span className="move-stats--value">
+                {this.state.player && this.state.player.stats.damage}
+              </span>
+            </div>
+          </div>
           <button className="move-btn move-btn_next" onClick={this.moveNext}>
             Двигаться дальше
           </button>

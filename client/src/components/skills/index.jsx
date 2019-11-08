@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
+import { Nav, Navbar } from "react-bootstrap";
 
 class Skills extends React.Component {
   constructor(props) {
@@ -51,9 +52,25 @@ class Skills extends React.Component {
     return (
 
       <div className="body">
-        <Link to="/homepage">
-          <div className="home">Home Page</div>
-        </Link>
+        <Navbar className="bar" expand="lg" fixed="top" variant="dark">
+            <Navbar.Brand>HeroCoder</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto"></Nav>
+              <Nav>
+                <div className="registration">
+                  <Link className="profile-link" to="/homepage">
+                    <span>HomePage</span>
+                  </Link>
+                </div>
+                <div>
+                  <Link className="profile-link" to="/fight">
+                    <span>Fight</span>
+                  </Link>
+                </div>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
         <div className='perks-title--wrap'>
           <div className="perks-title">JS</div>
           <div className="perks-title">CSS</div>
