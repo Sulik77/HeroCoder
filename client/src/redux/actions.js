@@ -1,4 +1,4 @@
-import { START_FIGHT, END_FIGHT } from "./types";
+import { START_FIGHT, LOGIN, END_FIGHT } from "./types";
 
 const StartFightAC = () => {
   return {
@@ -6,4 +6,40 @@ const StartFightAC = () => {
   };
 };
 
-export { StartFightAC };
+const loginAC = data => {
+  return {
+    type: LOGIN,
+    user: data
+  };
+};
+
+const EndFightFunctionAC = (user, goldValue) => {
+  const fightResult = {
+    playerName: user,
+    gold: goldValue
+  };
+
+  return async dispatch => {
+    const res = await fetch("/api/endFight", {
+      method: "put",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(fightResult)
+    });
+    const player = await res.json();
+    console.log(player);
+
+    dispatch(endFightAC(player));
+  };
+};
+
+const endFightAC = user => {
+  return {
+    type: END_FIGHT,
+    userInitial: user
+  };
+};
+
+export { StartFightAC, loginAC, EndFightFunctionAC };

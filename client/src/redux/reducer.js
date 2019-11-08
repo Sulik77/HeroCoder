@@ -1,27 +1,29 @@
-import { START_FIGHT } from "./types";
+import { START_FIGHT, LOGIN, END_FIGHT } from "./types";
 
 const initialState = {
-  player: {
-    type: "player",
-    name: "player",
-    avatar:
-      "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
-    percs: [],
-    stats: {
-      health: 300,
-      damage: 10
-    }
-  }
+  user: { player: "" }
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case START_FIGHT: {
       return {
-        state
+        ...state
       };
     }
-
+    case LOGIN: {
+      return {
+        ...state,
+        user: action.user,
+        loggedin: true
+      };
+    }
+    case END_FIGHT: {
+      return {
+        ...state,
+        user: action.userInitial
+      };
+    }
     default:
       return state;
   }

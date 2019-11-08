@@ -1,7 +1,6 @@
 .pveboard-wrap {
   margin: 0 10%;
   display: flex;
-  height: 800px;
   justify-content: space-around;
 }
 
@@ -10,21 +9,23 @@
 }
 
 .oponent-wrap {
-  background-color: rgb(233, 108, 6);
-  border: 10px dashed rgb(81, 218, 236);
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+  box-shadow: 3px 5px 8px 7px rgb(19, 19, 19);
   padding-bottom: 20px;
   box-sizing: border-box;
-  height: 800px;
 }
 .oponent-avatar {
-  padding-top: 30px;
+  padding-top: 20px;
   margin-bottom: 60px;
 }
 .oponent-avatar img {
   display: block;
   width: 300px;
-  height: 300px;
+  height: 400px;
   margin: 0 auto;
+  border: 10px outset rgb(68, 66, 66);
+  box-shadow: 3px 5px 8px 7px rgb(19, 19, 19);
 }
 
 .oponent-name {
@@ -48,7 +49,8 @@
   margin: 0 10%;
   padding: 10px;
   box-sizing: border-box;
-  border: outset 5px rgb(81, 218, 236);
+  border: 10px outset rgb(68, 66, 66);
+  box-shadow: 3px 5px 8px 7px rgb(19, 19, 19);
 }
 
 .oponent-stats {
@@ -57,13 +59,23 @@
   padding: 10px 0;
 }
 
+.oponent-stats img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+}
+
 .oponent-stats span {
-  font-size: 20;
+  font-size: 26px;
   color: rgb(161, 42, 165);
 }
 
 .wrap-fight {
   width: 40%;
+}
+
+.wrap-fight a:hover {
+  text-decoration: none;
 }
 
 .fight-status {
@@ -73,6 +85,10 @@
   font-size: 30px;
   padding: 20px;
   text-align: center;
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
 
 .fight-btn {
@@ -81,11 +97,24 @@
   padding: 10px;
   font-weight: 800;
   font-size: 30px;
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
 }
 
 .logs-wrap {
   overflow: auto;
-  height: 683px;
+  height: 550px;
+  background-color: rgba(236, 111, 8, 0.7);
+  border: 10px outset rgb(68, 66, 66);
+  box-shadow: 3px 5px 8px 7px rgb(19, 19, 19);
+  box-sizing: border-box;
+  font-size: 22px;
+  padding: 10px;
+  font-weight: 800;
+}
+
+.logs-wrap ul {
+  margin-top: 30px;
 }
 
 .logs-elements {
@@ -100,7 +129,7 @@
 
 .logs-elements--oponents {
   font-weight: 800;
-  color: rgb(34, 92, 180);
+  color: rgb(61, 16, 143);
   font-size: 18px;
 }
 
@@ -108,4 +137,96 @@
   font-weight: 800;
   color: rgb(128, 0, 0);
   font-size: 20px;
+}
+
+.fightApp-wrap {
+  padding-top: 6vh;
+  padding-bottom: 4vh;
+  min-height: 78vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fightApp-link {
+  width: 40%;
+  position: relative;
+  border: 10px outset rgb(68, 66, 66);
+}
+
+.fightApp-link--pve {
+  background: url(https://avatars.mds.yandex.net/get-pdb/163339/723cfaf8-5e7a-4941-b2cc-c9124497cadb/s1200?webp=false)
+    no-repeat center;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.fightApp-link--pvp {
+  background: url(https://i.pinimg.com/originals/b2/35/ce/b235ce7cc566bb1da76ad2c7e49e603d.jpg)
+    no-repeat center;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.fightApp-link--pvp__color {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  height: 100%;
+}
+
+.fightApp-home {
+  display: block;
+  margin: 10px auto;
+  width: 900px;
+  border-radius: 20px;
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+}
+
+.fightApp-home:hover {
+  text-decoration: none;
+}
+
+.fightApp-home__link {
+  height: 15vh;
+  margin-bottom: 9px;
+}
+
+.fightApp-home__link span {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: rgb(90, 81, 74);
+}
+
+.list-fightApp-wrap {
+  background: url(/img/bg.jpg) no-repeat center;
+  background-size: cover;
+  padding-bottom: 2vh;
+}
+
+.fightApp-link__desc {
+  font-size: 30px;
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+  font-weight: 800;
+  color: blanchedalmond;
+}
+
+.fightApp-btn__home {
+  width: 300px;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+  margin: 0 auto;
+  margin-top: 30px;
+  color: black;
+  font-weight: 800;
 }

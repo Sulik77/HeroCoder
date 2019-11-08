@@ -1,0 +1,94 @@
+.move-wrap {
+  height: 100vh;
+  padding: 1px;
+}
+
+.move-wrap a {
+  text-decoration: none;
+}
+
+.move-btn {
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 30px;
+  font-weight: 800;
+  background-color: rgb(236, 111, 8);
+  border: 10px outset rgb(68, 66, 66);
+  color: rgb(90, 81, 74);
+  max-width: 330px;
+}
+
+.move-btn_link {
+  margin: 0 auto;
+  display: block;
+  max-width: 350px;
+}
+
+.move-btn_next {
+  margin-top: 70vh;
+}
+
+.move-btn_back {
+  margin-top: 2vh;
+}
+
+.location-going-fight {
+  min-height: 100vh;
+  padding-top: 5vh;
+}
+
+.move-logs {
+  position: absolute;
+  height: 30vh;
+  width: 25%;
+  padding: 20px;
+  left: 30px;
+  bottom: 30px;
+  background-color: rgba(236, 111, 8, 0.6);
+  border: 10px outset rgb(68, 66, 66);
+}
+
+.move-logs--desc {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.move-logs--value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.move-stats {
+  position: absolute;
+  height: 30vh;
+  width: 25%;
+  padding: 20px;
+  right: 30px;
+  bottom: 30px;
+  background-color: rgba(236, 111, 8, 0.6);
+  border: 10px outset rgb(68, 66, 66);
+  font-size: 20px;
+}
+
+.move-stats--desc {
+  font-size: 25px;
+  margin-right: 20px;
+  font-weight: 800;
+}
+
+.move-stats--value {
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+}
+
+button:active,
+button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}

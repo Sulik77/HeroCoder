@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 import CharacterUnits from "./CharacterUnits";
 import TableLogs from "./TableLogs";
-import { StartFightAC } from "../../../redux/actions";
+import { StartFightAC, EndFightFunctionAC } from "../../../redux/actions";
 
 import CreateMob from "./helpers/createMob/createMob";
 import startFight from "./helpers/initialFight/initialFight";
@@ -19,13 +21,14 @@ class PvEBoard extends React.Component {
       loading: true,
       player: null,
       mob: null,
-      chanceEscape: true
+      chanceEscape: true,
+      playerDead: false
     };
   }
 
   goToFight = async () => {
     this.props.Figth();
-    this.setState({
+   await this.setState({
       loading: true,
       statusFight: "fight",
       chanceEscape: false
@@ -40,12 +43,19 @@ class PvEBoard extends React.Component {
       fightLogs: fight.logs,
       messagelog: null
     });
+    if (this.state.player.stats.health > 0) {
+      const goldCreate = Math.floor(Math.random() * 21);
+      this.props.EndFight(this.state.player.name, goldCreate);
+    } else {
+      const goldCreate = -Math.floor(Math.random() * 21);
+      this.props.EndFight(this.state.player.name, goldCreate);
+    }
   };
 
   goToRun = async () => {
     const randomChance = Math.floor(Math.random() * 2);
 
-    if (randomChance === 0) {
+    if (randomChance === 1) {
       const escape = loseEscape(this.state.player, this.state.mob);
       await this.setState({
         chanceEscape: false,
@@ -53,15 +63,12 @@ class PvEBoard extends React.Component {
         player: escape.player
       });
     } else {
-      const mobInitial = CreateMob(this.state.player);
-      await this.setState({
-        mob: mobInitial
-      });
+      this.props.history.push("/figth/pve/locations");
     }
   };
 
   async componentDidMount() {
-    const cloneOfPropsPlayer = JSON.parse(JSON.stringify(this.props.player));
+    const cloneOfPropsPlayer = this.props.player;
     const playerInitial = cloneOfPropsPlayer;
     const createMob = CreateMob(playerInitial);
     await this.setState({
@@ -70,7 +77,7 @@ class PvEBoard extends React.Component {
       loading: false
     });
   }
-
+  z;
   get escapeButton() {
     return (
       <>
@@ -124,6 +131,13 @@ class PvEBoard extends React.Component {
               {this.state.messagelog}
               <TableLogs logs={this.state.fightLogs} />
             </div>
+            {this.state.statusFight === "hold" ? (
+              " "
+            ) : (
+              <Link to="/homepage">
+                <div className="fightApp-btn__home">Домой</div>
+              </Link>
+            )}
           </div>
           <div className="pveboard-oponents">
             <CharacterUnits oponent={this.state.mob} />
@@ -134,19 +148,16 @@ class PvEBoard extends React.Component {
   }
 }
 
-function mapStateToProps(store) {
-  return {
-    player: store.player
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
-    Figth: () => dispatch(StartFightAC())
+    Figth: () => dispatch(StartFightAC()),
+    EndFight: (userName, gold) => dispatch(EndFightFunctionAC(userName, gold))
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PvEBoard);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(PvEBoard)
+);

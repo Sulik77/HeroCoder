@@ -1,0 +1,155 @@
+.game {
+  font-size: 19px;
+  text-align: center;
+  color: rgb(238, 238, 238);
+}
+
+.fonHome {
+  margin: 0;
+  padding: 1px;
+  font-size: 12px;
+  background: #000000 url("/img/bg.jpg") center no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.profile-wrap {
+  margin: 0 10%;
+  border: 8px solid rgb(233, 106, 21);
+  background-color: rgba(37, 39, 54, 0.7);
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10vh;
+}
+
+.profile-container {
+  margin-top: 20px;
+
+  width: 45%;
+}
+
+.profile-container-avatar img {
+  box-shadow: 5px 5px 6px 4px #000;
+  display: block;
+  margin: 0 auto;
+  border: 6px solid rgb(233, 106, 21);
+  box-sizing: border-box;
+  width: 300px;
+  height: 400px;
+}
+
+.profile-desc {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.profile-container-stats__stats {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-weight: 800;
+  font-size: 22px;
+  box-sizing: border-box;
+  margin: 30px;
+}
+
+.profile-container-stats__stats span {
+  display: block;
+}
+
+.profile-container-stats__stats img {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-wrap-stats {
+  width: 300px;
+  border: 6px solid rgb(233, 106, 21);
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background-color: rgb(153, 85, 39);
+  box-shadow: 5px 5px 6px 4px #000;
+  margin-bottom: 30px;
+}
+
+.skill_title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 28px;
+  box-sizing: border-box;
+  margin: 30px;
+  text-align: center;
+}
+
+.profile-wrap-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.profile-skill__wrap {
+  width: 33%;
+}
+
+.profile-skill {
+  background-color: rgba(33, 31, 31, 1);
+  width: 90px;
+  height: 90px;
+  border: 3px solid rgb(1, 1, 3);
+  margin: 10px;
+}
+.profile-skill img {
+  width: 85px;
+  height: 85px;
+}
+
+.profile-gold {
+  width: 70px;
+  height: 70px;
+}
+
+.profile-gold--value {
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.profile-wrap-stats--gold {
+  margin-top: 50px;
+}
+
+.profile-wrap-stats--gold_wrap {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.profile-link:hover {
+  text-decoration: none;
+}
+
+.profile-link span {
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 20px;
+  background-color: rgb(236, 111, 8);
+  border: 5px outset rgb(68, 66, 66);
+  box-sizing: border-box;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0 20px;
+  font-weight: 800;
+}
+
+.profile-link:hover span {
+  border: 5px outset rgb(161, 52, 13);
+  background-color: rgb(228, 69, 11);
+}
