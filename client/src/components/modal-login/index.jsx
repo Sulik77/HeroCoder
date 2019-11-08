@@ -41,7 +41,7 @@ class Modal extends Component {
       });
     } else {
       this.props.login(data);
-      await this.setState({ isOpen: false });
+      this.setState({ isOpen: false });
       this.props.history.push("/homepage");
     }
   };
