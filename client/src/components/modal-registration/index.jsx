@@ -25,7 +25,7 @@ class Registration extends Component {
   onSubmit = async e => {
     e.preventDefault();
     this.setState({ error: "" })
-    let resp = await fetch("/signup", {
+    let resp = await fetch("/api/signup", {
       method: "POST",
       headers: {
         Accept: "application/json",

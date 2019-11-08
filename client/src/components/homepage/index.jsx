@@ -4,10 +4,11 @@ import { loginAC } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
 
 class HomePage extends React.Component {
   componentDidMount = async () => {
-    const login = await fetch("/api/check-sesion", {
+    const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -15,7 +16,6 @@ class HomePage extends React.Component {
       }
     });
     const session = await login.json();
-    console.log("session", session);
 
     const resp = await fetch("/api/update-store", {
       method: "POST",
@@ -25,12 +25,27 @@ class HomePage extends React.Component {
       },
       body: JSON.stringify(session)
     });
-
     const data = await resp.json();
+    console.log(data);
     this.props.login(data);
     console.log("USER ===>>>>", this.props.user);
     console.log(this.props.user.stats.damage);
   };
+
+  logout = async () => {
+    const resp = await fetch("/api/logout", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    const data = await resp.json();
+    if(data){
+      this.props.history.push("/")
+    }
+  }
+  
 
   render() {
     return (
@@ -117,6 +132,15 @@ class HomePage extends React.Component {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
+              <button onClick={this.logout}>
+                Logout
+              </button>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+=======
               <div className="profile-wrap-stats profile-wrap-stats--gold">
                 <div className="profile-wrap-stats--gold_wrap">
                   <img
@@ -133,6 +157,7 @@ class HomePage extends React.Component {
           </div>
         </div>
       </>
+>>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
     );
   }
 }
@@ -149,7 +174,12 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+<<<<<<< HEAD
+export default withRouter(connect(
+  null,
+=======
 export default connect(
   mapStateToProps,
+>>>>>>> 4f86dea55d3fdb41d7a9b1ab37abb4b7dc06555c
   mapDispatchToProps
-)(HomePage);
+)(HomePage));

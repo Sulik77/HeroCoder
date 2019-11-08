@@ -1,18 +1,18 @@
 {
     "cookie": {
         "originalMaxAge": 600000,
-        "expires": "2019-11-07T15:15:08.400Z",
+        "expires": "2019-11-07T16:08:18.338Z",
         "httpOnly": true,
         "path": "/"
     },
     "user": {
-        "_id": "5dc3ebc96ff0ac58a90b10e7",
-        "username": "anton",
-        "email": "dsa@m.c",
-        "password": "$2b$12$uXm/YQOmJLvlG/esZ2QQy.5iaR0qdXJDELMwE2K5HVxK.nphQvlaS",
+        "_id": "5dc3fc06182e6f1485b8cdad",
+        "username": "test",
+        "email": "test@test.ru",
+        "password": "$2b$12$nhUcidc6uK2w4Q66ntG0beoXTwalKNngXI/78yy3Lx6TB2dQpH1BW",
         "player": {
             "type": "player",
-            "name": "anton",
+            "name": "test",
             "avatar": "https://media.hearthpwn.com/avatars/297/167/636023914413148543.png",
             "percs": [],
             "stats": {
@@ -20,9 +20,9 @@
                 "health": 300,
                 "damage": 10
             },
-            "gold": 82
+            "gold": -13
         },
         "__v": 0
     },
-    "__lastAccess": 1573139108405
+    "__lastAccess": 1573142298344
 }

@@ -23,7 +23,7 @@ class Modal extends Component {
 
   onSubmit = async e => {
     e.preventDefault();
-    let resp = await fetch("/login", {
+    let resp = await fetch("/api/login", {
       method: "POST",
       headers: {
         Accept: "application/json",

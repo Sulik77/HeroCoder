@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    const resp = await fetch("/api/check-sesion", {
+    const resp = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -35,9 +35,8 @@ export default class App extends React.Component {
     return (
       <Router>
         <div className="full-screen">
-          <Route exact path="/" component={Faq} />
 
-          {this.state.checkSession ? (
+          {this.state.checkSession ?
             <>
               <Route exact path="/skill" component={Skills} />
               <Route exact path="/fight" component={FightApp} />
@@ -54,17 +53,10 @@ export default class App extends React.Component {
                 component={MoveLocation}
               />
             </>
-          ) : (
-            <>
-              <Route exact path="/skill" component={Faq} />
-              <Route exact path="/fight" component={Faq} />
-              <Route exact path="/figth/pve/locations" component={Faq} />
-              <Route exact path="/figth/pve/fight" component={Faq} />
-              <Route exact path="/skill/test" component={Faq} />
-              <Route exact path="/homepage" component={Faq} />
-              <Route path="/figth/pve/locations/:location" component={Faq} />
-            </>
-          )}
+            :
+            <></>}
+
+          <Route exact path="/" component={Faq} />
         </div>
       </Router>
     );
