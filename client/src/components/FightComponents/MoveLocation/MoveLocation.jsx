@@ -20,9 +20,7 @@ class MoveLocation extends React.Component {
   }
 
   componentDidMount = async () => {
-    console.log(1);
-
-    const login = await fetch("/api/check-sesion", {
+    const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -47,6 +45,8 @@ class MoveLocation extends React.Component {
     this.props.login(data);
 
     const params = this.props.match.params.location;
+    console.log("params", params);
+
     const playerInitial = JSON.parse(JSON.stringify(this.props.player));
 
     await this.setState({
