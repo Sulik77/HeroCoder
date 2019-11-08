@@ -119,6 +119,15 @@ router.post("/api/skill-learn", async (req, res) => {
   res.json(user);
 });
 
+router.post("/api/gold-update", async (req, res) => {
+  const user = await User.findOne({ _id: req.session.user._id });
+  let gold = user.player.gold;
+  const playerUpdate = user.player;
+  playerUpdate.gold = req.body.gold;
+  await User.findByIdAndUpdate({ _id: req.session.user._id }, { player: playerUpdate })
+  res.json(user);
+});
+
 
 
 
