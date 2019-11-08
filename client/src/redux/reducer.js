@@ -1,7 +1,7 @@
 import { START_FIGHT, LOGIN, END_FIGHT } from "./types";
 
 const initialState = {
-  user: { player: "" }
+  user: { player: "null" }
 };
 
 export default function(state = initialState, action) {

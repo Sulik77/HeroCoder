@@ -22,8 +22,8 @@ class MoveLocation extends React.Component {
 
   componentDidMount = async () => {
     console.log(this.props.player);
-    
-    const login = await fetch("/api/check-sesion", {
+
+    const login = await fetch("/api/check-session", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -31,6 +31,7 @@ class MoveLocation extends React.Component {
       }
     });
     const session = await login.json();
+    console.log("session", session);
 
     const resp = await fetch("/api/update-store", {
       method: "POST",
@@ -42,8 +43,7 @@ class MoveLocation extends React.Component {
     });
 
     const data = await resp.json();
-    console.log(data);
-    
+    console.log("data", data);
 
     this.props.login(data);
 
