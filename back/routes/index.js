@@ -57,7 +57,7 @@ router.route("/api/signup").post(async (req, res) => {
           health: 300,
           damage: 10
         },
-        gold: 5
+        gold: 25
       }
     });
     await user.save();
