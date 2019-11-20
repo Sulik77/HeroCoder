@@ -47,7 +47,6 @@ class Test extends React.Component {
       });
     });
     await this.setState({ trueAnswers: trueVariant });
-    console.log(this.state);
   };
 
   handleInput = async e => {
@@ -63,7 +62,6 @@ class Test extends React.Component {
     const test2 = JSON.stringify(answersUser);
     const test1 = JSON.stringify(trueAnswers);
     const skill = this.props.match.params.id;
-    console.log(skill);
 
     if (test2 === test1) {
       await this.setState({ done: "true" });

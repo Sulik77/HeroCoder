@@ -29,7 +29,6 @@ class MoveLocation extends React.Component {
       }
     });
     const session = await login.json();
-    console.log("session", session);
 
     const resp = await fetch("/api/update-store", {
       method: "POST",
@@ -41,12 +40,10 @@ class MoveLocation extends React.Component {
     });
 
     const data = await resp.json();
-    console.log("data", data);
 
     this.props.login(data);
 
     const params = this.props.match.params.location;
-    console.log("params", params);
 
     const playerInitial = JSON.parse(JSON.stringify(this.props.player));
 

@@ -27,10 +27,7 @@ class HomePage extends React.Component {
     });
     const data = await resp.json();
     this.props.login(data);
-    console.log("data", data);
 
-    console.log("this.state", this.state);
-    console.log("this.props.user && this.props.user.percs[1].img");
   };
 
   logout = async () => {

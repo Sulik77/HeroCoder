@@ -23,7 +23,6 @@ router.route("/api/login").post(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    console.log("error user");
     res.json({ status: 1, error: "Такой пользователь не найден" });
   } else {
     const check = await bcrypt.compare(password, user.password);
@@ -31,7 +30,6 @@ router.route("/api/login").post(async (req, res) => {
       const message = "Не правильный password или email";
       res.json({ status: 1, error: message });
     } else {
-      console.log("nashel");
       req.session.user = user;
       res.json({ username: user.username, hero: user.hero });
     }
@@ -57,7 +55,7 @@ router.route("/api/signup").post(async (req, res) => {
           health: 300,
           damage: 10
         },
-        gold: 5
+        gold: 25
       }
     });
     await user.save();
@@ -95,7 +93,6 @@ router.put("/api/endFight", async (req, res) => {
   userInitial.markModified("player.gold");
   await userInitial.save();
   res.json(userInitial);
-  console.log(userInitial);
 });
 
 router.post("/api/update-store", async (req, res) => {

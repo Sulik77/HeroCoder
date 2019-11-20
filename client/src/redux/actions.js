@@ -29,7 +29,6 @@ const EndFightFunctionAC = (user, goldValue) => {
       body: JSON.stringify(fightResult)
     });
     const player = await res.json();
-    console.log(player);
 
     dispatch(endFightAC(player));
   };

@@ -47,8 +47,6 @@ class Skill extends React.Component {
 
   render() {
     const data = this.props.data;
-    console.log(data);
-
     const desc =
       data.title +
       "\n " +
