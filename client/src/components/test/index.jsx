@@ -39,6 +39,7 @@ class Test extends React.Component {
       }
     });
     const dataTest = await respGetTest.json();
+    console.log(dataTest);
     await this.setState({ questions: dataTest });
     let trueVariant = [];
     dataTest.map(question => {

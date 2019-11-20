@@ -19,12 +19,16 @@ cd client -> npm start
 
 ## Как это выглядит
 
-![img](./)
+![img](./readme/ap.gif)
 
 
 ## Используемые технологии 
 
-что-то
+ - __React__ 
+ - __Redux__ 
+ - __Express.js__
+ - __Node.js__ 
+ - __Bootstrap__
+ - __MongoDB__
 
 
-## Команда разработчиков 
